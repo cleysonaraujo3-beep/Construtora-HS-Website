@@ -1,0 +1,4 @@
+.home .cta-section.cta-contact-us::before{display:none !important;}
+.home .cta-section:before {
+display: none !important;
+}

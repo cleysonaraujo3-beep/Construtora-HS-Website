@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="lenis lenis-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Serviços Oferecidos - Construtora HS</title>
+    
+    <!-- Meta tags for SEO & Performance -->
+    <meta name="description" content="Conheça os serviços de engenharia e construção da Construtora HS. Especialistas em obras industriais, comerciais e residenciais de alto padrão.">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsDark: '#0F1228',
+                        dsAccent: '#f18e39',
+                        dsBlue: '#3c43aa',
+                        dsSecBlue: '#3c43aa',
+                        dsDarkBlue: '#1e245a',
+                        dsBg: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        mono: ['monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- External Assets -->
+    <link href="assets/vendor/snyder/app_0cf8237cb8dc.css" rel="stylesheet"/>
+    <link href="assets/vendor/snyder/wic4jic_a11143a54c02.css" rel="stylesheet"/>
+    <link href="assets/vendor/hbw/2rsxp_a3deac85bef4.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.css">
+
+    <style>
+        :root {
+            --ds-bg: #ffffff; 
+            --ds-dark: #0F1228;
+            --ds-accent: #f18e39;
+            --ds-sec-blue: #3c43aa;
+        }
+
+        body { 
+            background-color: var(--ds-bg);
+            color: var(--ds-dark);
+            font-family: "Montserrat", sans-serif !important;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span, a, button {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* Navigation Styles */
+        .ds-nav { 
+            position: fixed; top: 0; width: 100%; z-index: 9999; 
+            background: transparent; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 1.8rem 0; 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease, padding 0.4s ease;
+        }
+        .ds-nav.nav--scrolled, .ds-nav:hover {
+            background: #ffffff !important;
+            padding: 1.2rem 0 !important;
+            border-bottom: 1px solid var(--ds-border) !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .ds-nav.nav--hidden { transform: translateY(-100%); }
+        .nav-container { display: grid; grid-template-columns: auto 1fr auto; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+        .ds-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: 3rem; justify-content: center; }
+        
+        .nav-link { 
+            color: #ffffff; text-decoration: none; font-weight: 700; 
+            font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; 
+            position: relative; transition: all 0.3s ease; 
+        }
+        .ds-nav.nav--scrolled .nav-link, .ds-nav:hover .nav-link { color: var(--ds-dark) !important; }
+        .nav-link:hover { color: var(--ds-accent) !important; }
+        .nav-link::after { 
+            content: ''; position: absolute; width: 0; height: 2px; 
+            bottom: -6px; left: 50%; transform: translateX(-50%); 
+            background-color: var(--ds-accent); transition: width 0.3s ease; 
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .nav-socials { display: flex; align-items: center; gap: 15px; }
+        .nav-social-link { transition: transform 0.3s ease, opacity 0.3s ease; opacity: 0.8; color: #ffffff; }
+        .nav-social-link:hover { transform: translateY(-3px); opacity: 1; color: var(--ds-accent) !important; }
+        .ds-nav.nav--scrolled .nav-social-link, .ds-nav:hover .nav-social-link { color: var(--ds-dark); }
+        
+        .btn-nav-contact { 
+            background-color: var(--ds-accent); color: #ffffff !important; 
+            padding: 10px 20px; border-radius: 4px; text-decoration: none; 
+            font-weight: 700; font-size: 11px; text-transform: uppercase; 
+            letter-spacing: 0.1em; border: 2px solid var(--ds-accent); 
+            transition: all 0.3s ease; 
+        }
+        .btn-nav-contact:hover { background-color: transparent !important; color: var(--ds-accent) !important; }
+        .ds-nav.nav--scrolled .btn-nav-contact:hover, .ds-nav:hover .btn-nav-contact:hover { background-color: #ffffff !important; }
+
+        /* Dropdown Styles - Mega Menu Upgrade */
+        .nav-link { display: flex; align-items: center; gap: 6px; }
+        .nav-item-dropdown { position: relative; }
+        .nav-dropdown-menu {
+            position: absolute; top: calc(100% + 15px); left: 50%; transform: translateX(-50%) translateY(10px);
+            background: #ffffff; min-width: 420px; padding: 1rem;
+            border-radius: 16px; border-top: 4px solid var(--ds-accent);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+            opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            display: flex; flex-direction: column; gap: 4px;
+        }
+        .nav-item-dropdown:hover .nav-dropdown-menu {
+            opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+        }
+        /* Dropdown Items (Standardized Blocks) */
+        .nav-dropdown-item {
+            display: flex; align-items: center; gap: 20px; width: 100%;
+            padding: 18px 20px; border-radius: 12px;
+            text-decoration: none; transition: all 0.3s ease;
+            background: transparent; min-height: 95px; /* Uniform Height */
+        }
+        .nav-dropdown-item:hover {
+            background-color: rgba(60, 67, 170, 0.03); /* Subtle Blue Tint */
+            transform: scale(1.02);
+        }
+        .icon-box {
+            flex-shrink: 0; width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(60, 67, 170, 0.05); color: var(--ds-sec-blue);
+            border-radius: 10px; transition: all 0.3s ease;
+        }
+        .nav-dropdown-item:hover .icon-box {
+            background: var(--ds-accent); color: #ffffff;
+        }
+        .text-box { display: flex; flex-direction: column; gap: 2px; }
+        .dropdown-title {
+            color: var(--ds-dark); font-weight: 800; font-size: 13px;
+            text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.2;
+        }
+        .dropdown-desc {
+            color: #666; font-size: 11px; font-weight: 500;
+            line-height: 1.4; max-width: 280px;
+        }
+        /* Dropdown connector area */
+        .nav-item-dropdown::after {
+            content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 25px;
+        }
+
+        /* Generic premium card style */
+        .service-card {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 4px;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.1);
+            border-color: var(--ds-accent);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <nav class="ds-nav">
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="index.html" class="inline-flex items-center h-[50px]">
+                    <img src="assets/img/logo.webp" alt="Construtora HS" class="h-[45px] w-auto transition-all duration-500" id="nav-logo">
+                </a>
+                
+                <!-- Center Links (Updated) -->
+                <ul class="flex items-center gap-10 ml-12">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    
+                    <!-- Services Dropdown (Mega Style) -->
+                    <li class="nav-item-dropdown group">
+                        <a href="servicos-oferecidos.html" class="nav-link">
+                            Serviços Oferecidos
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" class="ml-1 transition-transform group-hover:rotate-180">
+                                <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <!-- Item 1: Residenciais -->
+                            <a href="obras-residenciais.html" class="nav-dropdown-item">
+                                <div class="icon-box">
+                                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                                </div>
+                                <div class="text-box">
+                                    <span class="dropdown-title">Obras residenciais</span>
+                                    <span class="dropdown-desc">Construções de alto padrão com acabamento impecável para o seu novo lar.</span>
+                                </div>
+                            </a>
+                            <!-- Item 2: Galpões -->
+                            <a href="galpoes-industriais.html" class="nav-dropdown-item">
+                                <div class="icon-box">
+                                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                </div>
+                                <div class="text-box">
+                                    <span class="dropdown-title">Galpões Industriais</span>
+                                    <span class="dropdown-desc">Estruturas modulares e soluções robustas para expansão comercial.</span>
+                                </div>
+                            </a>
+                            <!-- Item 3: Personalizadas -->
+                            <a href="obras-personalizadas.html" class="nav-dropdown-item">
+                                <div class="icon-box">
+                                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9.1e-07M6 15l-5-5L6 5M11 5l5 5-5 5m-5 0l5 5 5-5M11 5l-5 5 5 5m5-5l5-5-5-5"/></svg>
+                                </div>
+                                <div class="text-box">
+                                    <span class="dropdown-title">Obras Personalizadas</span>
+                                    <span class="dropdown-desc">Projetos sob medida que transformam ideias em engenharia de precisão.</span>
+                                </div>
+                            </a>
+                            <!-- Item 4: Coberturas -->
+                            <a href="servicos-oferecidos.html" class="nav-dropdown-item">
+                                <div class="icon-box">
+                                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 10L12 3L21 10M12 3V21M3 21H21"/></svg>
+                                </div>
+                                <div class="text-box">
+                                    <span class="dropdown-title">Soluções em Coberturas</span>
+                                    <span class="dropdown-desc">Vedações térmicas e acústicas com as tecnologias mais modernas do mercado.</span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li><a href="obras.html" class="nav-link">Obras</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                    <li><a href="sobre-nos.html" class="nav-link">Sobre Nós</a></li>
+                </ul>
+
+                <!-- Right Actions -->
+                <div class="nav-actions ml-auto">
+                    <div class="nav-socials hidden lg:flex">
+                        <a href="https://www.facebook.com/profile.php?id=61561076320295" target="_blank" class="nav-social-link" title="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.14H7v4.21h2.5V23h5V11.67h3.43l.84-4.21Z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/construtoraahs/" target="_blank" class="nav-social-link" title="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.247 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.247-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.247-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.247 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                    <a href="contato.html" class="btn-nav-contact">Falar com Especialista</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Compact Hero Section -->
+        <section class="relative min-h-[45vh] flex items-center bg-dsDark overflow-hidden z-10 py-24">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1503387762-592dee58c460?q=80&w=2070" alt="Engenharia HS" class="w-full h-full object-cover opacity-20 gs-parallax-hero">
+                <div class="absolute inset-0 bg-dsDark/80"></div>
+            </div>
+
+            <div class="max-w-[1400px] mx-auto px-10 relative z-20 w-full">
+                <div class="flex flex-col md:flex-row items-end justify-between gap-10">
+                    <div class="max-w-3xl gsap-fade-up">
+                        <h1 class="font-sans text-[clamp(40px,5vw,72px)] leading-[1] font-extrabold tracking-[-2px] text-white uppercase">
+                            Serviços <span class="text-dsAccent">Oferecidos</span>
+                        </h1>
+                    </div>
+                    <div class="max-w-md gsap-fade-up" data-delay="0.2">
+                        <p class="text-white/60 text-base md:text-lg font-medium leading-relaxed border-l-2 border-dsAccent/50 pl-6">
+                            Soluções completas em engenharia e construção civil, com foco em precisão técnica, cumprimento de prazos e alto padrão de acabamento.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-dsAccent to-transparent z-30"></div>
+        </section>
+
+        <!-- Services Grid Section -->
+        <section class="py-24 lg:py-32 bg-white relative z-20">
+            <div class="max-w-[1400px] mx-auto px-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    
+                    <!-- Service 1: Residencial -->
+                    <div class="service-card p-10 flex flex-col justify-between gsap-fade-up" data-delay="0.1">
+                        <div class="flex flex-col gap-8">
+                            <div class="w-16 h-16 bg-dsAccent/10 rounded-lg flex items-center justify-center text-dsAccent">
+                                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-black text-dsDark uppercase tracking-tighter mb-4">Obras Residenciais de Luxo</h3>
+                                <p class="text-dsDark/70 text-lg leading-relaxed mb-6">
+                                    Transformamos sonhos em arquitetura de alto padrão. Especialistas em casas de luxo, condomínios fechados e reformas sofisticadas, garantindo que cada detalhe reflita a personalidade de quem nela vive.
+                                </p>
+                                <ul class="space-y-3 text-dsDark/80 font-bold text-sm uppercase tracking-wide mb-8">
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Gerenciamento Completo</li>
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Acabamentos de Excelência</li>
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Projetos Sustentáveis</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="obras-residenciais.html" class="inline-flex items-center gap-3 px-8 py-4 bg-dsDark text-white font-bold uppercase text-xs tracking-widest rounded transition-all hover:bg-dsAccent self-start mt-4">Saber Mais</a>
+                    </div>
+
+                    <!-- Service 2: Galpões -->
+                    <div class="service-card p-10 flex flex-col justify-between gsap-fade-up" data-delay="0.2">
+                        <div class="flex flex-col gap-8">
+                            <div class="w-16 h-16 bg-dsBlue/10 rounded-lg flex items-center justify-center text-dsBlue">
+                                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-black text-dsDark uppercase tracking-tighter mb-4">Galpões e Logística</h3>
+                                <p class="text-dsDark/70 text-lg leading-relaxed mb-6">
+                                    Engenharia robusta para o crescimento do seu negócio. Projetamos e construímos galpões industriais e centros logísticos com as melhores tecnologias em estruturas metálicas e concreto pré-moldado.
+                                </p>
+                                <ul class="space-y-3 text-dsDark/80 font-bold text-sm uppercase tracking-wide mb-8">
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Ampla Vão Livre</li>
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Pisos de Alta Resistência</li>
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Agilidade na Entrega</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="galpoes-industriais.html" class="inline-flex items-center gap-3 px-8 py-4 bg-dsDark text-white font-bold uppercase text-xs tracking-widest rounded transition-all hover:bg-dsAccent self-start mt-4">Saber Mais</a>
+                    </div>
+
+                    <!-- Service 3: Personalizada -->
+                    <div class="service-card p-10 flex flex-col justify-between gsap-fade-up" data-delay="0.3">
+                        <div class="flex flex-col gap-8">
+                            <div class="w-16 h-16 bg-dsAccent/10 rounded-lg flex items-center justify-center text-dsAccent">
+                                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9.1e-07M6 15l-5-5L6 5M11 5l5 5-5 5m-5 0l5 5 5-5M11 5l-5 5 5 5m5-5l5-5-5-5"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-black text-dsDark uppercase tracking-tighter mb-4">Obras Personalizadas</h3>
+                                <p class="text-dsDark/70 text-lg leading-relaxed mb-6">
+                                    Nossas soluções de engenharia adaptam-se aos desafios mais complexos. Se o seu projeto exige inovação, tecnologia de ponta e uma abordagem personalizada, a Construtora HS é o parceiro ideal.
+                                </p>
+                                <ul class="space-y-3 text-dsDark/80 font-bold text-sm uppercase tracking-wide mb-8">
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Consultoria Técnica</li>
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Soluções Turnkey</li>
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Gestão em Nuvem</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="obras-personalizadas.html" class="inline-flex items-center gap-3 px-8 py-4 bg-dsDark text-white font-bold uppercase text-xs tracking-widest rounded transition-all hover:bg-dsAccent self-start mt-4">Saber Mais</a>
+                    </div>
+
+                    <!-- Service 4: Coberturas -->
+                    <div class="service-card p-10 flex flex-col justify-between gsap-fade-up" data-delay="0.4">
+                        <div class="flex flex-col gap-8">
+                            <div class="w-16 h-16 bg-dsBlue/10 rounded-lg flex items-center justify-center text-dsBlue">
+                                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 10L12 3L21 10M12 3V21M3 21H21"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-black text-dsDark uppercase tracking-tighter mb-4">Coberturas e Vedações</h3>
+                                <p class="text-dsDark/70 text-lg leading-relaxed mb-6">
+                                    Segurança e proteção para grandes vãos. Trabalhamos com telhas térmicas, acústicas e sistemas de impermeabilização de última geração, garantindo durabilidade e conforto térmico para sua edificação.
+                                </p>
+                                <ul class="space-y-3 text-dsDark/80 font-bold text-sm uppercase tracking-wide mb-8">
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Vedações Termoacústicas</li>
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Telhas Galvanizadas</li>
+                                    <li class="flex items-center gap-2"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="var(--ds-accent)" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg> Estruturas Especiais</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="coberturas.html" class="inline-flex items-center gap-3 px-8 py-4 bg-dsDark text-white font-bold uppercase text-xs tracking-widest rounded transition-all hover:bg-dsAccent self-start mt-4">Saber Mais</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 bg-dsDark relative overflow-hidden">
+            <div class="max-w-[1200px] mx-auto px-10 relative z-10 text-center">
+                <h2 class="font-sans text-4xl md:text-5xl font-black text-white uppercase mb-8">Precisa de um orçamento detalhado?</h2>
+                <p class="text-white/60 text-lg mb-12 max-w-2xl mx-auto">Nossa equipe comercial está pronta para analisar seu projeto e oferecer a melhor solução técnica com o melhor custo-benefício.</p>
+                <a href="contato.html" class="inline-flex items-center justify-center px-12 py-5 bg-dsAccent text-white font-bold uppercase text-sm tracking-widest rounded-sm hover:scale-105 transition-all shadow-xl">Entrar em Contato Agora</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION (Inspired by McCarthy Corporate Style) -->
+    <footer class="bg-white pt-16 pb-12 relative z-20 border-t border-gray-100">
+        <div class="max-w-[1400px] mx-auto px-10">
+            
+            <!-- Row 1: Logo & Newsletter -->
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end gap-10 mb-16">
+                <!-- Footer Logo (Increased Size) -->
+                <div class="flex-shrink-0">
+                    <img src="assets/img/logo.webp" alt="Construtora HS" class="h-[85px] w-auto grayscale contrast-125 opacity-90 transition-all hover:grayscale-0">
+                </div>
+
+                <!-- Newsletter CTA -->
+                <div class="flex flex-col items-center md:items-end group">
+                    <a href="#newsletter" class="flex items-center gap-3 group">
+                        <span class="font-sans font-black text-dsDark text-base md:text-lg tracking-[0.1em] uppercase transition-colors group-hover:text-dsAccent">
+                            Inscreva-se em nossa newsletter
+                        </span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-dsAccent transition-transform group-hover:translate-x-2">
+                            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Subtle Divider -->
+            <div class="w-full h-[1px] bg-gray-100 mb-12"></div>
+
+            <!-- Row 2: Socials & Institutional Links -->
+            <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12">
+                
+                <!-- Social Media Icons (LHS) -->
+                <div class="flex items-center gap-8">
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/profile.php?id=61561076320295" target="_blank" class="text-dsDark/30 hover:text-dsDark transition-colors">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.14H7v4.21h2.5V23h5V11.67h3.43l.84-4.21Z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/construtoraahs/" target="_blank" class="text-dsDark/30 hover:text-dsDark transition-colors">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.247 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.247-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.247-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.247 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+
+                <!-- Footer Links (RHS) -->
+                <div class="flex flex-wrap justify-center lg:justify-end gap-x-10 gap-y-4">
+                    <a href="#empresa" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Empresa</a>
+                    <a href="#projetos" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Projetos</a>
+                    <a href="#processo" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Nosso Processo</a>
+                    <a href="#trabalhe" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Trabalhe Conosco</a>
+                    <a href="#contato" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Contato</a>
+                    <a href="#privacidade" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Privacidade</a>
+                </div>
+            </div>
+
+            <!-- Subfooter: Copyright & Dev -->
+            <div class="mt-20 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-dsDark/20 text-[10px] tracking-wider uppercase font-bold">
+                    © 2026 Construtora HS. Todos os direitos reservados. · Vista Alegre do Alto - SP
+                </p>
+                <div class="text-dsDark/20 text-[10px] tracking-wider uppercase font-bold flex items-center gap-2">
+                    <span>Branding & Design por</span>
+                    <a href="#" class="text-dsDark/40 hover:text-dsAccent transition-colors">Weitz</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis();
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 2. Navigation Scroll Effect
+        const nav = document.querySelector('.ds-nav');
+        const logo = document.getElementById('nav-logo');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY <= 50) {
+                nav.classList.remove('nav--scrolled', 'nav--hidden');
+                if(logo) {
+                    logo.style.filter = "none";
+                    logo.style.transform = "scale(1)";
+                }
+            } else {
+                nav.classList.add('nav--scrolled');
+                if(logo) {
+                    logo.style.filter = "none";
+                    logo.style.transform = "scale(0.9)";
+                }
+                
+                if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                    nav.classList.add('nav--hidden');
+                } else if (currentScrollY < lastScrollY) {
+                    nav.classList.remove('nav--hidden');
+                }
+            }
+            lastScrollY = currentScrollY;
+        });
+
+        // Simple FadeUp
+        document.querySelectorAll('.gsap-fade-up').forEach(el => {
+            gsap.from(el, {
+                y: 60, opacity: 0, duration: 1.2, ease: "power4.out",
+                scrollTrigger: { trigger: el, start: "top 85%" }
+            });
+        });
+    </script>
+</body>
+</html>

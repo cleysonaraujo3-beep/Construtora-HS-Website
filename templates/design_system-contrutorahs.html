@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: auto; background-color: #ffffff; color: #0F1228;">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <title>Construtora HS - Premium Design System</title>
+
+    <!-- Snyder Fonts & Styles -->
+    <link href="https://use.typekit.net" rel="preconnect"/>
+    <link href="https://p.typekit.net" rel="preconnect"/>
+    <link href="../public/assets/vendor/snyder/app_0cf8237cb8dc.css" rel="stylesheet"/>
+    <link href="../public/assets/vendor/snyder/wic4jic_a11143a54c02.css" rel="stylesheet"/>
+    <link href="../public/assets/vendor/snyder/glider_020626f7046b.css" rel="stylesheet" type="text/css"/>
+    
+    <!-- HBW Styles -->
+    <link href="../public/assets/vendor/hbw/2rsxp_a3deac85bef4.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="../public/assets/vendor/hbw/hjv1c_ad7d5c0a4852.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="../public/assets/vendor/hbw/66ybg_58b4ee59e9c6.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="../public/assets/vendor/hbw/2rtk1_978868122768.css" media="all" rel="stylesheet" type="text/css"/>
+
+    <style data-scroll-fix="true">
+        /* DS Base Overrides - Premium Light Mode */
+        :root {
+            --ds-bg: #ffffff; 
+            --ds-dark: #0F1228; /* Escuro Premium */
+            --ds-text: #0F1228; /* Textos primários alta legibilidade */
+            --ds-border: rgba(15, 18, 40, 0.15); /* Borda refinada */
+            --ds-accent: #f18e39; /* Laranja (Primary / CTA) */
+            --ds-sec-blue: #3c43aa; /* Azul vibrante (Detalhes) */
+        }
+
+        .btn--primary { background-color: var(--ds-accent) !important; color: #ffffff !important; border-color: var(--ds-accent) !important; transition: opacity 0.3s; }
+        .btn--primary:hover { opacity: 0.8 !important; }
+        .btn--outline { border-color: var(--ds-sec-blue) !important; color: var(--ds-sec-blue) !important; transition: opacity 0.3s, background-color 0.3s; }
+        .btn--outline:hover { background-color: var(--ds-sec-blue) !important; color: #ffffff !important; }
+
+        html, body { 
+            overflow: auto !important; 
+            overflow-x: hidden !important; 
+            scroll-behavior: smooth !important;
+            background-color: var(--ds-bg) !important;
+            color: var(--ds-text);
+            font-family: "proxima-nova", sans-serif;
+        }
+
+        /* Nav */
+        /* Nav McCarthy Style */
+        .ds-nav { 
+            position: fixed; top: 0; width: 100%; z-index: 9999; 
+            background: transparent; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 1.8rem 0; 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease, padding 0.4s ease;
+        }
+        .ds-nav.nav--scrolled, .ds-nav:hover {
+            background: #ffffff !important;
+            padding: 1.2rem 0 !important;
+            border-bottom: 1px solid var(--ds-border) !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .ds-nav.nav--hidden {
+            transform: translateY(-100%);
+        }
+        .ds-nav .nav-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        .ds-nav ul { 
+            display: flex; list-style: none; margin: 0; padding: 0; gap: 3rem; flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        /* Agrupamento de Ações (Sociais + Contato) */
+        .nav-actions {
+            justify-self: end;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-socials {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-social-link {
+            line-height: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.8;
+            color: #ffffff; /* Cor inicial (branco no topo transparente) */
+        }
+
+        .nav-social-link:hover {
+            transform: translateY(-3px);
+            opacity: 1;
+            color: var(--ds-accent) !important;
+        }
+
+        /* Se o menu estiver scrolled (fundo branco), os ícones ficam azuis/escuros */
+        .ds-nav.nav--scrolled .nav-social-link, 
+        .ds-nav:hover .nav-social-link {
+            color: var(--ds-dark);
+        }
+
+        /* Botão de Contato Nav (Ainda Menor) */
+        .btn-nav-contact {
+            background-color: var(--ds-accent);
+            color: #ffffff !important;
+            padding: 6px 14px; /* Reduzido de 8x18 */
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 10px; /* Reduzido de 11px */
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 2px solid var(--ds-accent);
+            transition: all 0.3s ease;
+        }
+        .btn-nav-contact:hover {
+            background-color: #ffffff !important;
+            color: var(--ds-accent) !important;
+            border-color: var(--ds-accent) !important;
+        }
+
+        .ds-nav a { 
+            color: #ffffff; text-decoration: none; font-weight: 700; 
+            font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; 
+            position: relative; transition: all 0.3s ease; 
+        }
+        .ds-nav.nav--scrolled a, .ds-nav:hover a { color: var(--ds-dark) !important; }
+        .ds-nav a:hover { color: var(--ds-accent) !important; }
+        
+        .ds-nav a::after {
+            content: ''; position: absolute; width: 0; height: 2px; 
+            bottom: -6px; left: 50%; transform: translateX(-50%);
+            background-color: var(--ds-accent); transition: width 0.3s ease;
+        }
+        .ds-nav a:hover::after { width: 100%; }
+
+        /* Sections */
+        .ds-section { padding: 120px 0; border-bottom: 1px solid var(--ds-border); position: relative; background-color: var(--ds-bg); }
+        
+        .ds-title { 
+            font-family: "proxima-nova", sans-serif; font-size: 48px; font-weight: 900; 
+            margin-bottom: 60px; text-align: center; text-transform: uppercase; 
+            color: var(--ds-dark);
+            letter-spacing: -1px;
+        }
+        .ds-subtitle { 
+            font-family: inherit; font-size: 22px; font-weight: 600; margin-bottom: 30px; 
+            color: var(--ds-sec-blue); margin-top: 60px; border-bottom: 2px solid var(--ds-accent); 
+            display: inline-block; padding-bottom: 8px; letter-spacing: 0.05em;
+        }
+
+        /* Spec Rows */
+        .ds-spec-row { 
+            display: flex; justify-content: space-between; align-items: stretch; 
+            border: 1px solid var(--ds-border); padding: 40px; margin-bottom: 20px;
+            background: var(--ds-bg); border-radius: 12px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .ds-spec-row:hover {
+            transform: translateY(-5px);
+            border-color: var(--ds-accent);
+        }
+        .ds-spec-name { font-family: monospace; font-size: 15px; color: var(--ds-sec-blue); width: 25%; flex-shrink: 0; display: flex; flex-direction: column; gap: 10px;}
+        .ds-spec-name code { background: rgba(15, 18, 40, 0.05); padding: 4px 8px; border-radius: 4px; color: var(--ds-accent); font-size: 13px;}
+        .ds-spec-preview { width: 50%; flex-grow: 1; color: var(--ds-text);}
+        .ds-spec-preview h1, .ds-spec-preview h2, .ds-spec-preview h3, .ds-spec-preview p { margin: 0 !important; color: inherit; }
+        .ds-spec-metrics { font-family: monospace; font-size: 13px; color: var(--ds-dark); width: 25%; text-align: right; flex-shrink: 0; }
+
+        /* Demo Boxes */
+        .ds-demo-box { 
+            border: 1px solid var(--ds-border); padding: 50px; margin-bottom: 30px; 
+            background: var(--ds-bg); border-radius: 12px; position: relative; overflow: hidden;
+        }
+        
+        /* Swatches */
+        .ds-color-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 30px; }
+        .ds-swatch { border-radius: 12px; overflow: hidden; background: var(--ds-bg); border: 1px solid var(--ds-border); transition: transform 0.3s; }
+        .ds-swatch:hover { transform: scale(1.05); border-color: var(--ds-accent); z-index: 10; }
+        .ds-swatch-color { height: 160px; width: 100%; position: relative; border-bottom: 1px solid var(--ds-border);}
+        .ds-swatch-info { padding: 20px; font-family: monospace; font-size: 14px; line-height: 1.6; color: var(--ds-dark); border-top: 1px solid var(--ds-border);}
+        
+        /* Motion Grid */
+        .ds-motion-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .ds-motion-item .ds-demo-box { height: 250px; display: flex; align-items: center; justify-content: center; }
+
+        /* Adjustments for integrated classes */
+        .u-color-text-white { color: #ffffff !important; }
+        .text-display-1 { color: inherit; }
+        .hero-content { color: #ffffff; } 
+        
+        /* Hero Section Magic */
+        .hero-showcase {
+            position: relative;
+            min-height: 45vh; /* Ainda mais compacto */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--ds-dark);
+            padding: 180px 0 60px 0; /* Aumentado para descer o conteúdo abaixo do menu */
+            box-sizing: border-box;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background-color: rgba(15, 18, 40, 0.4); /* Dark Navy com opacity reduzida para mostrar o video */
+            z-index: 2;
+        }
+        .hero-video-bg {
+            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;
+        }
+        .hero-content {
+            position: relative; z-index: 10; width: 100%; max-width: 1400px; padding: 0 40px; color: #ffffff;
+        }
+
+        /* Custom Button Hover */
+        .btn-custom-outline {
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+            transition: all 0.3s ease;
+        }
+        .btn-custom-outline:hover {
+            color: #ffffff !important;
+            background-color: var(--ds-accent) !important;
+            border-color: var(--ds-accent) !important;
+        }
+
+        /* Utility visibility classes */
+        .opacity-0 { opacity: 1 !important; }
+        .load .lines span { width: 20px; }
+    </style>
+</head>
+<body>
+
+<nav class="ds-nav">
+    <div class="nav-container">
+        <a href="#hero" style="border:none; padding:0; height: 50px; display: flex; align-items: center; justify-self: start;">
+            <img src="../public/assets/img/logo.webp" alt="Logo Construtora HS" style="height: 50px; width: auto;">
+        </a>
+        
+        <ul>
+            <li><a href="#hero">Hero</a></li>
+            <li><a href="#typography">Tipografia</a></li>
+            <li><a href="#colors">Cores</a></li>
+            <li><a href="#components">Componentes</a></li>
+            <li><a href="#icons">Ícones</a></li>
+            <li><a href="#motion">Animações</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <div class="nav-socials">
+                <a href="#" class="nav-social-link" title="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.247 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.247-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.247-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.247 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" class="nav-social-link" title="LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+                </a>
+                <a href="#" class="nav-social-link" title="Facebook">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+            </div>
+            <a href="#contact" class="btn-nav-contact">Contato</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+<!-- 1. HERO SHOWCASE -->
+<header id="hero" class="hero-showcase header header--lg header--video" style="margin-top: 0;">
+    <div class="hero-video-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1; pointer-events: none;">
+        <iframe src="https://player.vimeo.com/video/1178578515?background=1&autoplay=1&loop=1&byline=0&title=0" 
+                style="width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" 
+                frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+        </iframe>
+    </div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left;">
+        <!-- Decorative Lines -->
+        <div class="load" style="margin-bottom: 0;">
+            <span class="lines" style="position:relative; display:inline-flex; width: 100px;">
+                <span style="background-color: var(--ds-accent);"></span>
+                <span style="background-color: var(--ds-accent);"></span>
+                <span style="background-color: var(--ds-accent);"></span>
+            </span>
+        </div>
+        
+        <p class="header__tagline u-text-uppercase" style="color: var(--ds-accent); font-weight: bold; letter-spacing: 3px; margin-bottom: 0;">
+            Premium Design System
+        </p>
+        <h1 class="header__heading text-display-1" style="color: #ffffff; font-size: clamp(35px, 5vw, 85px); line-height: 1.1; max-width: 1200px; margin: 0; letter-spacing: -1px; width: 100%;">
+            SOLUÇÕES INTELIGENTES EM <strong style="color: var(--ds-accent);">CONSTRUÇÕES</strong>
+        </h1>
+        
+        <div class="hero-section__content load" style="position: relative; margin-top: 5px; max-width: 700px; width: 100%;">
+            <div class="dark-blue-bar" style="background: var(--ds-dark); border-left: 4px solid var(--ds-accent);"> 
+                <span class="subtitle"> 
+                    <span class="text" style="color:#ffffff;">O Padrão de Excelência</span> 
+                </span>
+            </div>
+            <div class="white-bar" style="background: rgba(255,255,255,0.05); backdrop-filter: blur(5px);"> 
+                <p style="color:#ffffff;">Uma identidade visual sólida e cinematográfica, unindo contrastes profundos com alto impacto construtivo.</p>
+            </div>
+        </div>
+
+        <div class="button-group" style="margin-top: 15px; display: flex; justify-content: flex-start; gap: 20px; width: 100%;">
+            <a class="btn btn--outline btn-custom-outline" href="#typography">Explorar Design</a>
+            <a class="btn btn--outline btn-custom-outline" href="#components">Ver Componentes</a>
+        </div>
+    </div>
+</header>
+
+<!-- 2. TYPOGRAPHY -->
+<section id="typography" class="ds-section">
+    <div class="container container--lg u-relative" style="z-index: 10;">
+        <h2 class="ds-title">Tipografia (Lettering)</h2>
+        <p class="ds-subtitle" style="text-align: center; display: block; margin: 0 auto 60px;">Forte, impactante e legível.</p>
+        
+        <div class="ds-spec-row">
+            <div class="ds-spec-name">
+                Heading 1
+            </div>
+            <div class="ds-spec-preview">
+                <h1 class="text-display-1 u-text-uppercase" style="color: var(--ds-dark);">Construindo<br>O Futuro</h1>
+            </div>
+            <div class="ds-spec-metrics">90px / 95px<br>Proxima Nova</div>
+        </div>
+
+        <div class="ds-spec-row">
+            <div class="ds-spec-name">
+                Heading 2
+            </div>
+            <div class="ds-spec-preview">
+                <h2 class="text-display-4" style="color:var(--ds-dark);">Parcerias Duradouras</h2>
+                <h2 class="sk-heading--subh-xl" style="color:var(--ds-accent); margin-top:20px !important;">Detalhe por Detalhe.</h2>
+            </div>
+            <div class="ds-spec-metrics">52px / 62px</div>
+        </div>
+
+        <div class="ds-spec-row">
+            <div class="ds-spec-name">
+                Tagline / Label
+            </div>
+            <div class="ds-spec-preview">
+                <p class="header__tagline" style="color: var(--ds-accent); letter-spacing: 2px; text-transform: uppercase;">Desde 1969</p>
+                <h6 class="sk-text--h6" style="color: var(--ds-sec-blue); margin-top:15px !important;">Foco na Qualidade</h6>
+            </div>
+            <div class="ds-spec-metrics">14px / 18px</div>
+        </div>
+
+        <div class="ds-spec-row">
+            <div class="ds-spec-name">
+                Body / Paragraph
+            </div>
+            <div class="ds-spec-preview text-content">
+                <p class="text-xl" style="color:var(--ds-text);">Ligue para nós: <strong style="color: var(--ds-accent);">417.887.6897</strong></p>
+                <p style="color:var(--ds-text); margin-top:15px !important;">Por mais de 40 anos, a construtora tem sido líder em construção comercial. Nossa equipe possui recursos e experiência para levar o projeto com sucesso até a conclusão.</p>
+            </div>
+            <div class="ds-spec-metrics">18px / 28px</div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. COLOR SYSTEM -->
+<section id="colors" class="ds-section">
+    <div class="container container--lg">
+        <h2 class="ds-title">Sistema de Cores</h2>
+        
+        <h3 class="ds-subtitle">Brand Colors</h3>
+        <div class="ds-color-swatches" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+            <div class="ds-swatch">
+                <div class="ds-swatch-color" style="background-color: var(--ds-dark);"></div>
+                <div class="ds-swatch-info">
+                    <strong style="color:var(--ds-dark);">Midnight (Navy)</strong><br>
+                    <code>var(--ds-dark)</code><br>
+                    HEX: #0F1228<br>
+                    Role: Base Escura & Textos
+                </div>
+            </div>
+            <div class="ds-swatch">
+                <div class="ds-swatch-color" style="background-color: var(--ds-sec-blue);"></div>
+                <div class="ds-swatch-info">
+                    <strong style="color:var(--ds-dark);">Azul (Vibrante)</strong><br>
+                    <code>var(--ds-sec-blue)</code><br>
+                    HEX: #3c43aa<br>
+                    Role: Destaques & Acessórios
+                </div>
+            </div>
+            <div class="ds-swatch">
+                <div class="ds-swatch-color bg-primary" style="background-color: var(--ds-accent);"></div>
+                <div class="ds-swatch-info">
+                    <strong style="color:var(--ds-dark);">Laranja (CTA)</strong><br>
+                    <code>var(--ds-accent)</code><br>
+                    HEX: #f18e39<br>
+                    Role: Destaque Primário
+                </div>
+            </div>
+            <div class="ds-swatch">
+                <div class="ds-swatch-color" style="background-color: #ffffff; border-bottom: 1px solid var(--ds-border);"></div>
+                <div class="ds-swatch-info">
+                    <strong style="color:var(--ds-dark);">Branco (Plano)</strong><br>
+                    <code>var(--ds-bg)</code><br>
+                    HEX: #ffffff<br>
+                    Role: Limpeza e Respiro
+                </div>
+            </div>
+        </div>
+
+        <h3 class="ds-subtitle" style="margin-top: 60px;">Solid Overlays</h3>
+        <div class="ds-demo-box u-text-align-center u-color-text-white u-relative" style='background-color: var(--ds-dark); padding: 80px; z-index: 1; border: none;'>
+            <div class="bg-image__content" style="position:relative; z-index: 2;">
+                <h2 class="text-display-4" style="color: #ffffff;">Deep Solid Background</h2>
+                <p style="color:#ffffff; opacity: 0.9; max-width: 600px; margin: 0 auto !important;">Utilizamos fundos Midnight Dark para garantir alto contraste nos textos brancos, entregando uma estética absurdamente "Premium" e focada.</p>
+                <div class="button-group" style="margin-top: 30px;">
+                    <a class="btn btn--outline" href="#" style="color:#ffffff; border-color:#ffffff;">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. UI COMPONENTS -->
+<section id="components" class="ds-section">
+    <div class="container container--lg u-relative" style="z-index: 10;">
+        <h2 class="ds-title">Componentes (UI)</h2>
+        
+        <h3 class="ds-subtitle">Botões & CTAs</h3>
+        <div class="ds-demo-box" style="display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-end;">
+            <div>
+                <p style="margin-bottom:15px; font-family:monospace; font-size: 13px; color: var(--ds-dark);">Primary <code>.btn.btn--primary</code></p>
+                <a class="btn btn--primary" href="#">Ação Principal</a>
+            </div>
+            <div>
+                <p style="margin-bottom:15px; font-family:monospace; font-size: 13px; color: var(--ds-dark);">Secondary <code>.btn.btn--outline</code></p>
+                <a class="btn btn--outline" href="#">Ação Secundária</a>
+            </div>
+            <div style="background-color: var(--ds-dark); padding: 20px; border-radius: 8px;">
+                <p style="margin-bottom:15px; font-family:monospace; font-size: 13px; color: #ffffff;">Em Fundo Escuro</p>
+                <a class="btn btn--outline" href="#" style="color:#ffffff; border-color:#ffffff;">Outline Invertido</a>
+            </div>
+        </div>
+
+        <h3 class="ds-subtitle" style="margin-top: 60px;">Cards Institucionais</h3>
+        <div class="ds-demo-box u-overflow-hidden" style="padding: 0;">
+            <div class="split-content split-content--centered">
+                <div class="split-content__item w-full-phone w-1/2" style="padding:40px; border-right: 1px solid var(--ds-border);">
+                    <div class="ds-comp-label" style="font-family:monospace; color:var(--ds-sec-blue); margin-bottom: 20px;">Project Card Premium</div>
+                    <a class="u-block u-relative" href="#" style="border-radius: 8px; overflow: hidden; display: block; border: 1px solid var(--ds-border);">
+                        <img alt="Project" class="u-block w-full" src="../public/assets/vendor/snyder/Mercy-2-Pod_Web-5_9ba19c8214a5.jpg" style="width:100%; transition: opacity 0.3s;"/>
+                        <span class="tile__btn btn--icon btn--icon-lg" style="position: absolute; bottom: 0; right: 0; background-color: var(--ds-accent);"></span>
+                    </a>
+                    <div style="padding-top: 20px;">
+                        <h3 class="text-display-4 margin-v--xs-bottom" style="font-size: 32px; color:var(--ds-dark);">Mercy Clinic Pod</h3>
+                        <p style="color:var(--ds-dark);">Springfield, MO | Healthcare</p>
+                    </div>
+                </div>
+
+                <div class="split-content__item w-full-phone w-1/2" style="padding:40px; display:flex; flex-direction:column; justify-content:center;">
+                    <div class="ds-comp-label" style="font-family:monospace; color:var(--ds-sec-blue); margin-bottom: 20px;">Detalhes do Projeto</div>
+                    <div class="projects" style="width:100%;">
+                        <div class="project-row" style="margin:0;">
+                            <div class="project row-item-1" style="width:100%; aspect-ratio:4/3; border-radius: 8px; overflow: hidden; border: 1px solid var(--ds-border);">
+                                <a href="#" target="_self" style="display: block; width: 100%; height: 100%; position: relative;">
+                                    <div class="image" style="background-image: url('../public/assets/vendor/hbw/Websize-114-Private-Wealth-03-_1276a3b2455a.jpg'); background-size: cover; width: 100%; height: 100%;"></div>
+                                    <div class="title load" style="position: absolute; bottom: 20px; left: 20px; background-color: var(--ds-dark); padding: 10px 20px;"> 
+                                        <span class="text" style="color:#ffffff; font-weight: bold; letter-spacing: 1px;">114 PRIVATE WEALTH</span> 
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="ds-subtitle" style="margin-top: 60px;">Section Titles & Line Decorations</h3>
+        <div class="ds-demo-box">
+            <div style="font-size:24px; position:relative;" class="load">
+                <span class="lines" style="position:relative; display:inline-flex; width: 120px;">
+                    <span style="background-color: var(--ds-accent); height:3px;"></span>
+                    <span style="background-color: var(--ds-accent); height:3px;"></span>
+                    <span style="background-color: var(--ds-accent); height:3px;"></span>
+                    <span style="background-color: var(--ds-accent); height:3px;"></span>
+                </span>
+            </div>
+            <h2 class="text-display-4" style="color:var(--ds-dark); margin-top: 15px !important;">Building Beyond Expectations</h2>
+        </div>
+
+        <h3 class="ds-subtitle" style="margin-top: 60px;">Marquee Tape (Scrolling)</h3>
+        <div class="ds-demo-box padding-v--sm" style="background: var(--ds-accent); border: none; overflow: hidden;">
+            <div class="marquee marquee--2">
+                <div class="marquee__track">
+                    <ul class="marquee__list">
+                        <li class="marquee__item"><a href="#" style="color:#ffffff;">Pre-Construction</a></li>
+                        <li class="marquee__item"><a href="#" style="color:#ffffff;">General Contracting</a></li>
+                        <li class="marquee__item"><a href="#" style="color:#ffffff;">Design-Build</a></li>
+                    </ul>
+                    <ul aria-hidden="true" class="marquee__list">
+                        <li class="marquee__item"><a href="#" style="color:#ffffff;">Pre-Construction</a></li>
+                        <li class="marquee__item"><a href="#" style="color:#ffffff;">General Contracting</a></li>
+                        <li class="marquee__item"><a href="#" style="color:#ffffff;">Design-Build</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. MOTION & ANIMATION (LAYOUTS) -->
+<section id="motion" class="ds-section">
+    <div class="container container--lg">
+        <h2 class="ds-title" style="color: var(--ds-dark);">Motion & Layouts</h2>
+        
+        <p style="text-align: center; margin-bottom: 60px; color: var(--ds-dark); font-size: 18px;">
+            Surgimentos limpos preservando a estética premium sem excesso de variações visuais.
+        </p>
+
+        <div class="ds-motion-grid">
+            <div class="ds-motion-item">
+                <p style="font-family:monospace; margin-bottom: 15px; color:var(--ds-dark);">AOS Fades</p>
+                <div class="ds-demo-box aos-init aos-animate" data-aos="fade-up">
+                    <h3 class="text-display-4" style="color:var(--ds-dark); font-size:28px;">Surgimento Elegante</h3>
+                </div>
+            </div>
+            
+            <div class="ds-motion-item">
+                <p style="font-family:monospace; margin-bottom: 15px; color:var(--ds-dark);">Wipe-in Image</p>
+                <div class="ds-demo-box wipe-in" style="padding: 0; border: 1px solid var(--ds-border);">
+                     <img alt="Demo" src="../public/assets/vendor/snyder/SNY_PhotoCollage_dae20e47c8f2.png" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
+            </div>
+
+            <div class="ds-motion-item" style="grid-column: span 2;">
+                <p style="font-family:monospace; margin-bottom: 15px; color:var(--ds-dark);">Diagonal Lines Clean</p>
+                <div class="content-lines-section dark" style="height: 250px; position:relative; overflow:hidden; border-radius: 12px; background: var(--ds-dark);">
+                    <div class="section-inner center" style="height:100%;">
+                        <div class="section-lines load reverse" style="height:100%;">
+                            <!-- Utilizando variações brandas de opacidade simulando a mesma cor principal -->
+                            <div class="line one"><span class="fill" style="background: rgba(241, 142, 57, 0.2);"></span></div>
+                            <div class="line two"><span class="fill" style="background: rgba(241, 142, 57, 0.4);"></span></div>
+                            <div class="line three"><span class="fill" style="background: rgba(241, 142, 57, 0.6);"></span></div>
+                            <div class="line four"><span class="fill" style="background: rgba(241, 142, 57, 0.8);"></span></div>
+                            <div class="line five"><span class="fill" style="background: var(--ds-accent);"></span></div>
+                        </div>
+                    </div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; width: 100%; text-align: center;">
+                        <h2 class="text-display-4" style="color: #ffffff; font-size: 48px;">Dinâmica Clean</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. ICONS -->
+<section id="icons" class="ds-section" style="border-bottom: none; padding-bottom: 160px;">
+    <div class="container container--lg">
+        <h2 class="ds-title">Iconografia</h2>
+        
+        <div class="ds-demo-box" style="display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; border: 1px solid var(--ds-border); padding: 80px 40px;">
+            <div class="icon-callout__icon-wrapper" style="width: 80px; height: 80px; filter: invert(21%) sepia(85%) saturate(3029%) hue-rotate(224deg) brightness(88%) contrast(92%);"> <!-- #3c43aa -->
+                <img alt="" src="../public/assets/vendor/snyder/Quality_27ba53f5eece.svg" style="width:100%; height:100%;" />
+            </div>
+            <div class="icon-callout__icon-wrapper" style="width: 80px; height: 80px; filter: invert(58%) sepia(89%) saturate(415%) hue-rotate(345deg) brightness(101%) contrast(93%);"> <!-- #f18e39 -->
+                <img alt="" src="../public/assets/vendor/snyder/Budget_94e9e319b492.svg" style="width:100%; height:100%;" />
+            </div>
+            <div class="icon-callout__icon-wrapper" style="width: 80px; height: 80px; filter: invert(21%) sepia(85%) saturate(3029%) hue-rotate(224deg) brightness(88%) contrast(92%);">
+                <img alt="" src="../public/assets/vendor/snyder/Calendar_46e9a4bfacfa.svg" style="width:100%; height:100%;" />
+            </div>
+            <div class="icon-callout__icon-wrapper" style="width: 80px; height: 80px; filter: invert(21%) sepia(85%) saturate(3029%) hue-rotate(224deg) brightness(88%) contrast(92%);">
+                <img alt="" src="../public/assets/vendor/snyder/Handshake_1af9b1b7c9ec.svg" style="width:100%; height:100%;" />
+            </div>
+        </div>
+
+        <div style="margin-top: 60px; text-align: center;">
+            <p style="color:var(--ds-dark); max-width: 600px; margin: 0 auto !important;">Ícones aplicados diretamente com as cores primárias estritas.</p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer style="background: var(--ds-border); padding: 60px 0; text-align: center;">
+    <h2 class="text-display-4" style="color: var(--ds-dark); font-size: 24px; margin-bottom: 10px;">Construtora HS</h2>
+    <p style="color: var(--ds-dark); font-size: 14px; text-transform: uppercase; letter-spacing: 2px;">Design System Library 2026</p>
+</footer>
+
+<!-- Scripts -->
+<script charset="utf-8" src="../public/assets/vendor/snyder/parallax_7f2ec587ff0a.js"></script>
+<script charset="utf-8" src="../public/assets/vendor/snyder/glider_2ccd72267016.js"></script>
+<script>
+    setTimeout(() => {
+        document.querySelectorAll('.load').forEach(el => el.classList.add('loaded', 'start-animation'));
+        
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.ds-nav');
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY === 0) {
+                // No topo exato: Transparente e visível
+                nav.classList.remove('nav--scrolled', 'nav--hidden');
+            } else {
+                // Fora do topo: Sempre preparado para ser branco
+                nav.classList.add('nav--scrolled');
+                
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    // Descendo (após um pequeno respiro): Esconde o menu
+                    nav.classList.add('nav--hidden');
+                } else if (currentScrollY < lastScrollY) {
+                    // Subindo: Mostra o menu (que já está com a classe scrolled/branco)
+                    nav.classList.remove('nav--hidden');
+                }
+            }
+            lastScrollY = currentScrollY;
+        });
+    }, 500);
+</script>
+
+</body>
+</html>

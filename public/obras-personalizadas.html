@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras Personalizadas — Chalés, Celeiros e Construções Exclusivas | Construtora HS</title>
+    <meta name="description" content="Construa seu chalé, celeiro americano ou projeto exclusivo com a Construtora HS. Transformamos sua ideia em obra única, com prazo garantido e acabamento impecável. Solicite seu orçamento agora.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { dsDark: '#0F1228', dsAccent: '#f18e39', dsBlue: '#3c43aa' }, fontFamily: { sans: ['Montserrat', 'sans-serif'] } } }
+        }
+    </script>
+    <style>
+        :root { --ds-dark:#0F1228; --ds-accent:#f18e39; --ds-blue:#3c43aa; }
+        body { font-family:'Montserrat',sans-serif!important; background:#fff; color:var(--ds-dark); overflow-x:hidden; }
+        h1,h2,h3,h4,p,span,a,button { font-family:'Montserrat',sans-serif!important; }
+
+        .lp-nav { position:fixed; top:0; width:100%; z-index:9999; background:transparent; padding:1.6rem 0; transition:all .4s ease; }
+        .lp-nav.scrolled { background:#fff!important; padding:1rem 0!important; box-shadow:0 4px 30px rgba(0,0,0,.08); }
+        .lp-nav.hidden-nav { transform:translateY(-100%); }
+
+        .hero-gradient { background:linear-gradient(105deg,rgba(15,18,40,.97) 0%,rgba(15,18,40,.75) 55%,rgba(15,18,40,.1) 100%); }
+
+        .btn-zap { background:#25D366; color:#fff; transition:all .3s cubic-bezier(.175,.885,.32,1.275); }
+        .btn-zap:hover { transform:scale(1.04) translateY(-2px); box-shadow:0 16px 40px rgba(37,211,102,.35); }
+        .btn-primary { background:var(--ds-accent); color:#fff; border:2px solid var(--ds-accent); transition:all .3s ease; }
+        .btn-primary:hover { background:transparent; color:var(--ds-accent); }
+        .btn-outline-white { border:2px solid rgba(255,255,255,.4); color:#fff; transition:all .3s ease; }
+        .btn-outline-white:hover { background:#fff; color:var(--ds-dark); border-color:#fff; }
+
+        .trust-number { font-size:clamp(2rem,4vw,3rem); font-weight:900; color:var(--ds-blue); line-height:1; }
+        .metodo-step { border-left:3px solid var(--ds-accent); transition:all .3s ease; }
+        .metodo-step:hover { border-left-color:var(--ds-blue); background:rgba(60,67,170,.03); }
+
+        /* Tipo card */
+        .tipo-card { position:relative; overflow:hidden; border-radius:1rem; cursor:pointer; }
+        .tipo-card img { transition:transform .7s ease; }
+        .tipo-card:hover img { transform:scale(1.08); }
+        .tipo-card .overlay { background:linear-gradient(to top, rgba(15,18,40,.9) 0%, rgba(15,18,40,.3) 60%, transparent 100%); transition:all .4s ease; }
+        .tipo-card:hover .overlay { background:linear-gradient(to top, rgba(15,18,40,.97) 0%, rgba(15,18,40,.5) 60%, rgba(15,18,40,.1) 100%); }
+        .tipo-badge { background:var(--ds-accent); color:#fff; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:.15em; padding:4px 12px; border-radius:999px; display:inline-block; margin-bottom:.75rem; }
+
+        /* Garantia card */
+        .garantia-card { border:1px solid rgba(0,0,0,.07); transition:all .4s ease; }
+        .garantia-card:hover { border-color:var(--ds-accent); transform:translateY(-6px); box-shadow:0 28px 56px -14px rgba(0,0,0,.1); }
+
+        /* Organic texture */
+        .wood-texture { background:repeating-linear-gradient(-30deg,transparent,transparent 12px,rgba(241,142,57,.03) 12px,rgba(241,142,57,.03) 24px); }
+
+        .sticky-cta { position:fixed; bottom:0; left:0; right:0; z-index:998; transform:translateY(100%); transition:transform .5s cubic-bezier(.4,0,.2,1); }
+        .sticky-cta.visible { transform:translateY(0); }
+
+        .floating-zap { position:fixed; bottom:90px; right:28px; z-index:999; width:58px; height:58px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 28px rgba(37,211,102,.45); transition:all .3s ease; }
+        .floating-zap:hover { transform:scale(1.12) rotate(8deg); }
+
+        .gsap-reveal { opacity:0; transform:translateY(28px); }
+        .gsap-fade { opacity:0; }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20um%20or%C3%A7amento%20para%20uma%20obra%20personalizada!" target="_blank" class="floating-zap" aria-label="Falar no WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- STICKY BOTTOM CTA -->
+<div class="sticky-cta" id="stickyCta">
+    <div class="bg-dsDark border-t border-white/10 py-4 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-white text-center sm:text-left">
+                <p class="font-black text-sm uppercase tracking-wider">Sua ideia merece virar obra.</p>
+                <p class="text-white/60 text-xs">Fale agora com um especialista. Sem compromisso.</p>
+            </div>
+            <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20um%20or%C3%A7amento%20para%20uma%20obra%20personalizada!" target="_blank" class="btn-zap px-8 py-3 rounded-lg font-black uppercase text-xs tracking-widest flex items-center gap-3 whitespace-nowrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Quero meu Orçamento
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- NAV SIMPLIFICADO -->
+<header>
+    <nav class="lp-nav" id="lpNav">
+        <div class="max-w-[1400px] mx-auto px-8 flex items-center justify-between">
+            <a href="index.html">
+                <img src="assets/img/logo.webp" alt="Construtora HS" class="h-[42px] w-auto transition-all" id="nav-logo">
+            </a>
+            <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20um%20or%C3%A7amento%20para%20uma%20obra%20personalizada!" target="_blank" class="btn-zap px-6 py-3 rounded-lg font-black uppercase text-xs tracking-widest flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Falar no WhatsApp
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+<!-- ===================== HERO ===================== -->
+<section class="relative min-h-screen flex items-center bg-dsDark overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="assets/img/reais/personalizada-1.avif" alt="Chalé exclusivo de alto padrão" class="w-full h-full object-cover opacity-50">
+        <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+    <div class="absolute inset-0 wood-texture z-[1]"></div>
+    <div class="max-w-[1300px] mx-auto px-8 relative z-10 w-full pt-28 pb-16">
+        <div class="max-w-3xl">
+            <span class="inline-block bg-dsAccent/20 text-dsAccent font-black uppercase tracking-[0.25em] text-xs px-5 py-2 rounded-full mb-8 gsap-reveal">Chalés · Celeiros Americanos · Projetos Exclusivos</span>
+            <h1 class="text-[clamp(38px,5.5vw,78px)] leading-[0.95] font-black text-white uppercase mb-6 gsap-reveal" style="letter-spacing:-3px;">
+                Sua ideia vira <br><span class="text-dsAccent">obra única.</span>
+            </h1>
+            <p class="text-white/80 text-xl md:text-2xl font-medium max-w-2xl mb-10 leading-relaxed gsap-reveal">
+                Construímos <strong class="text-white">chalés, celeiros americanos e projetos completamente exclusivos</strong> com identidade própria, alto padrão de acabamento e prazo garantido em contrato.
+            </p>
+            <!-- Benefit pills -->
+            <div class="flex flex-col sm:flex-row gap-5 mb-10 gsap-reveal">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0">
+                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <span class="text-white font-bold text-sm uppercase tracking-widest">Projeto 100% sob medida</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0">
+                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <span class="text-white font-bold text-sm uppercase tracking-widest">Identidade e estilo únicos</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0">
+                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <span class="text-white font-bold text-sm uppercase tracking-widest">Prazo garantido</span>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 gsap-reveal">
+                <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20um%20or%C3%A7amento%20para%20uma%20obra%20personalizada!" target="_blank" class="btn-zap px-10 py-5 rounded-xl font-black uppercase text-sm tracking-widest flex items-center justify-center gap-3 shadow-2xl">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Quero tirar minha ideia do papel
+                </a>
+                <a href="contato.html" class="btn-outline-white px-10 py-5 rounded-xl font-black uppercase text-sm tracking-widest flex items-center justify-center">
+                    Ver projetos realizados
+                </a>
+            </div>
+            <p class="text-white/40 text-xs mt-4 font-medium">✓ Resposta em até 2 horas &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ 100% gratuito</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== TRUST BAR ===================== -->
+<section class="py-12 bg-white border-b border-gray-100">
+    <div class="max-w-[1200px] mx-auto px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="gsap-reveal">
+                <div class="trust-number">+40</div>
+                <p class="text-dsDark/60 font-bold text-xs uppercase tracking-widest mt-2">Projetos Entregues</p>
+            </div>
+            <div class="gsap-reveal" data-delay="0.1">
+                <div class="trust-number">100%</div>
+                <p class="text-dsDark/60 font-bold text-xs uppercase tracking-widest mt-2">Projetos Únicos</p>
+            </div>
+            <div class="gsap-reveal" data-delay="0.2">
+                <div class="trust-number">+15</div>
+                <p class="text-dsDark/60 font-bold text-xs uppercase tracking-widest mt-2">Anos no Mercado</p>
+            </div>
+            <div class="gsap-reveal" data-delay="0.3">
+                <div class="trust-number">0</div>
+                <p class="text-dsDark/60 font-bold text-xs uppercase tracking-widest mt-2">Obras Abandonadas</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== TIPOS DE PROJETO ===================== -->
+<section class="py-24 bg-white">
+    <div class="max-w-[1200px] mx-auto px-8">
+        <div class="text-center mb-16 gsap-reveal">
+            <span class="text-dsBlue font-black uppercase tracking-[0.3em] text-xs mb-4 block">O que construímos</span>
+            <h2 class="text-4xl md:text-5xl font-black text-dsDark uppercase mb-4 leading-tight">Projetos que <span class="text-dsBlue">só existem um</span></h2>
+            <p class="text-dsDark/60 text-lg max-w-xl mx-auto">Se está na sua cabeça, a gente constrói. Cada obra é planejada do zero para refletir exatamente o que você quer.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Chalé -->
+            <div class="tipo-card group aspect-video gsap-reveal">
+                <img src="assets/img/reais/personalizada-2.jpg" alt="Chalé de madeira exclusivo" class="w-full h-full object-cover">
+                <div class="overlay absolute inset-0"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <span class="tipo-badge">Mais Pedido</span>
+                    <h3 class="font-black uppercase text-2xl mb-2 leading-tight">Chalés</h3>
+                    <p class="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">Chalés rústicos, modernos ou mistos — com madeira de lei, pedra, telhas coloniais ou metálicas. Do projeto à chave na mão.</p>
+                </div>
+            </div>
+            <!-- Celeiro Americano -->
+            <div class="tipo-card group aspect-video gsap-reveal" data-delay="0.15">
+                <img src="assets/img/reais/personalizada-3.jpg" alt="Celeiro americano estilo barn" class="w-full h-full object-cover">
+                <div class="overlay absolute inset-0"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <span class="tipo-badge">Tendência</span>
+                    <h3 class="font-black uppercase text-2xl mb-2 leading-tight">Celeiros Americanos</h3>
+                    <p class="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">O estilo barn que virou febre no Brasil. Estrutura robusta, acabamento impecável e aquele charme rústico que todo mundo quer.</p>
+                </div>
+            </div>
+            <!-- Exclusivo -->
+            <div class="tipo-card group aspect-video gsap-reveal" data-delay="0.3">
+                <img src="assets/img/reais/personalizada-4.jpg" alt="Construção exclusiva personalizada" class="w-full h-full object-cover">
+                <div class="overlay absolute inset-0"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <span class="tipo-badge">Sob Medida</span>
+                    <h3 class="font-black uppercase text-2xl mb-2 leading-tight">Projetos Exclusivos</h3>
+                    <p class="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">Tem uma ideia fora do padrão? Ótimo. Trabalhamos com projetos 100% customizados — se você imaginou, a gente constrói.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== DOR ===================== -->
+<section class="pt-24 pb-36 bg-gray-50 relative z-10">
+    <div class="max-w-[1100px] mx-auto px-8">
+        <div class="max-w-3xl mx-auto text-center">
+            <span class="text-dsBlue font-black uppercase tracking-[0.3em] text-xs mb-4 block gsap-reveal">O problema que ninguém fala</span>
+            <h2 class="text-4xl md:text-5xl font-black text-dsDark uppercase mb-6 leading-[1.05] gsap-reveal">
+                Pagar caro e receber <br><span class="text-dsBlue">um projeto genérico.</span>
+            </h2>
+            <p class="text-dsDark/60 text-lg mb-14 leading-relaxed gsap-reveal">Muita gente tenta construir algo diferente e acaba com uma obra comum. Veja por que isso acontece:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-left mb-20 gsap-reveal">
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-red-50 border border-red-100">
+                    <span class="text-red-500 text-2xl leading-none mt-0.5">✕</span>
+                    <div><p class="font-black text-dsDark text-sm mb-1">Construtora que não entende a ideia</p><p class="text-dsDark/50 text-xs leading-relaxed">O projeto sai diferente do que você imaginou. Frustrante — e caro para corrigir.</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-red-50 border border-red-100">
+                    <span class="text-red-500 text-2xl leading-none mt-0.5">✕</span>
+                    <div><p class="font-black text-dsDark text-sm mb-1">Mudanças constantes no orçamento</p><p class="text-dsDark/50 text-xs leading-relaxed">Cada detalhe personalizado vira um "adicional". O preço final não tem nada a ver com a proposta inicial.</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-red-50 border border-red-100">
+                    <span class="text-red-500 text-2xl leading-none mt-0.5">✕</span>
+                    <div><p class="font-black text-dsDark text-sm mb-1">Prazo que vira uma eternidade</p><p class="text-dsDark/50 text-xs leading-relaxed">Projetos diferentes exigem mais atenção. Sem um gestor dedicado, a obra para várias vezes.</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-red-50 border border-red-100">
+                    <span class="text-red-500 text-2xl leading-none mt-0.5">✕</span>
+                    <div><p class="font-black text-dsDark text-sm mb-1">Acabamento que não faz jus ao projeto</p><p class="text-dsDark/50 text-xs leading-relaxed">A ideia era incrível, mas o acabamento deixou a desejar. O sonho virou frustração.</p></div>
+                </div>
+            </div>
+            <div class="relative gsap-fade pb-12">
+                <img src="assets/img/reais/personalizada-4.jpg" alt="Obra personalizada de alto padrão" class="rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover max-h-[460px]">
+                <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-dsBlue px-10 py-5 rounded-xl shadow-2xl min-w-[320px] text-center">
+                    <span class="text-white font-black text-4xl block">85%</span>
+                    <span class="text-white/70 text-[10px] font-bold uppercase tracking-widest">dos clientes insatisfeitos dizem que o projeto final não refletiu a ideia original</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== MÉTODO HS ===================== -->
+<section class="py-24 bg-dsDark text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-72 h-72 bg-dsAccent/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-dsBlue/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+    <div class="max-w-[1100px] mx-auto px-8 relative z-10">
+        <div class="text-center mb-16 gsap-reveal">
+            <span class="inline-block bg-dsAccent/20 text-dsAccent font-black uppercase tracking-[0.25em] text-xs px-5 py-2 rounded-full mb-6">Nossa Metodologia</span>
+            <h2 class="text-4xl md:text-5xl font-black uppercase mb-6 leading-tight">
+                O <span class="text-dsAccent">Método HS</span> de <br>Projetos Exclusivos
+            </h2>
+            <p class="text-white/60 text-lg max-w-xl mx-auto">Desenvolvemos uma abordagem que garante que sua ideia seja entendida, preservada e executada com perfeição do início ao fim.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-dsAccent transition-all group gsap-reveal">
+                <div class="w-14 h-14 bg-dsAccent/15 rounded-xl flex items-center justify-center mb-6 group-hover:bg-dsAccent transition-all">
+                    <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#f18e39" stroke-width="2" class="group-hover:stroke-white transition-all"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                </div>
+                <h3 class="font-black uppercase text-lg mb-3 tracking-tight">Escuta e Imersão na Ideia</h3>
+                <p class="text-white/50 text-sm leading-relaxed">Antes de qualquer coisa, nos aprofundamos no que você quer. Estilo, materiais, sensação, uso — entendemos tudo para que o projeto reflita 100% a sua visão.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-dsAccent transition-all group gsap-reveal" data-delay="0.15">
+                <div class="w-14 h-14 bg-dsAccent/15 rounded-xl flex items-center justify-center mb-6 group-hover:bg-dsAccent transition-all">
+                    <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#f18e39" stroke-width="2" class="group-hover:stroke-white transition-all"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                </div>
+                <h3 class="font-black uppercase text-lg mb-3 tracking-tight">Orçamento Fechado e Detalhado</h3>
+                <p class="text-white/50 text-sm leading-relaxed">Sem adicionais surpresa. Cada detalhe do projeto é precificado antes de começar. O que está no contrato é o que você paga — ponto final.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-dsAccent transition-all group gsap-reveal" data-delay="0.3">
+                <div class="w-14 h-14 bg-dsAccent/15 rounded-xl flex items-center justify-center mb-6 group-hover:bg-dsAccent transition-all">
+                    <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#f18e39" stroke-width="2" class="group-hover:stroke-white transition-all"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h3 class="font-black uppercase text-lg mb-3 tracking-tight">Execução e Garantia Formal</h3>
+                <p class="text-white/50 text-sm leading-relaxed">Gestor dedicado na obra, relatório semanal com fotos e entrega com garantia formal assinada. Sua obra exclusiva entregue do jeito que você imaginou.</p>
+            </div>
+        </div>
+        <div class="text-center gsap-reveal">
+            <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20quero%20saber%20mais%20sobre%20o%20M%C3%A9todo%20HS%20para%20obras%20personalizadas!" target="_blank" class="btn-zap inline-flex items-center gap-3 px-12 py-5 rounded-xl font-black uppercase text-sm tracking-widest shadow-xl">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Quero conhecer o Método HS
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== COMO FUNCIONA ===================== -->
+<section class="py-24 bg-white">
+    <div class="max-w-[1000px] mx-auto px-8">
+        <div class="text-center mb-16 gsap-reveal">
+            <h2 class="text-4xl md:text-5xl font-black text-dsDark uppercase mb-4 leading-tight">Do sonho à obra <span class="text-dsBlue">em 4 passos simples</span></h2>
+            <p class="text-dsDark/60 text-lg">Um processo pensado para que sua ideia chegue à realidade sem surpresas.</p>
+        </div>
+        <div class="space-y-5">
+            <div class="metodo-step bg-gray-50 p-8 pl-10 rounded-2xl flex items-start gap-6 gsap-reveal">
+                <div class="flex-shrink-0 w-12 h-12 bg-dsBlue text-white rounded-xl flex items-center justify-center font-black text-xl">1</div>
+                <div>
+                    <h3 class="font-black text-dsDark uppercase text-base mb-2">Conversa de Imersão Gratuita</h3>
+                    <p class="text-dsDark/60 text-sm leading-relaxed">Você nos conta tudo sobre a ideia: referências, estilo, materiais, uso pretendido. Saímos com um entendimento completo do projeto. <strong class="text-dsDark">Sem custo nenhum.</strong></p>
+                </div>
+            </div>
+            <div class="metodo-step bg-gray-50 p-8 pl-10 rounded-2xl flex items-start gap-6 gsap-reveal" data-delay="0.1">
+                <div class="flex-shrink-0 w-12 h-12 bg-dsBlue text-white rounded-xl flex items-center justify-center font-black text-xl">2</div>
+                <div>
+                    <h3 class="font-black text-dsDark uppercase text-base mb-2">Orçamento Fechado com Todos os Detalhes</h3>
+                    <p class="text-dsDark/60 text-sm leading-relaxed">Cada material, cada detalhe de acabamento, cada etapa da obra está no orçamento. <strong class="text-dsDark">O valor não muda depois que você assina.</strong></p>
+                </div>
+            </div>
+            <div class="metodo-step bg-gray-50 p-8 pl-10 rounded-2xl flex items-start gap-6 gsap-reveal" data-delay="0.2">
+                <div class="flex-shrink-0 w-12 h-12 bg-dsBlue text-white rounded-xl flex items-center justify-center font-black text-xl">3</div>
+                <div>
+                    <h3 class="font-black text-dsDark uppercase text-base mb-2">Execução com Acompanhamento Constante</h3>
+                    <p class="text-dsDark/60 text-sm leading-relaxed">Nosso gestor acompanha a obra <strong class="text-dsDark">diariamente</strong>. Você recebe relatório semanal com fotos e progresso — sem precisar correr atrás de informação.</p>
+                </div>
+            </div>
+            <div class="metodo-step bg-gray-50 p-8 pl-10 rounded-2xl flex items-start gap-6 gsap-reveal" data-delay="0.3">
+                <div class="flex-shrink-0 w-12 h-12 bg-dsAccent text-white rounded-xl flex items-center justify-center font-black text-xl">✓</div>
+                <div>
+                    <h3 class="font-black text-dsDark uppercase text-base mb-2">Entrega da Chave com Garantia Assinada</h3>
+                    <p class="text-dsDark/60 text-sm leading-relaxed">No prazo combinado, você recebe a obra exatamente do jeito que imaginou. Assinamos garantia pós-obra. <strong class="text-dsDark">Qualquer problema, a gente resolve.</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 gsap-reveal">
+            <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20quero%20tirar%20meu%20projeto%20personalizado%20do%20papel!" target="_blank" class="btn-primary inline-flex items-center gap-3 px-12 py-5 rounded-xl font-black uppercase text-sm tracking-widest shadow-xl">
+                Quero tirar meu projeto do papel
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== PROVA SOCIAL ===================== -->
+<section class="py-16 bg-dsAccent">
+    <div class="max-w-[1000px] mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div><span class="text-white font-black text-6xl block mb-2">+40</span><span class="text-white/80 font-bold uppercase tracking-widest text-xs">Obras Entregues</span></div>
+            <div><span class="text-white font-black text-6xl block mb-2">99%</span><span class="text-white/80 font-bold uppercase tracking-widest text-xs">Clientes Satisfeitos</span></div>
+            <div><span class="text-white font-black text-6xl block mb-2">0</span><span class="text-white/80 font-bold uppercase tracking-widest text-xs">Obras Não Entregues</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== GALERIA ===================== -->
+<section class="py-24 bg-dsDark">
+    <div class="max-w-[1200px] mx-auto px-8">
+        <div class="text-center mb-16 gsap-reveal">
+            <h2 class="text-4xl md:text-5xl font-black text-white uppercase mb-4 leading-tight">Veja o que já <span class="text-dsAccent">tiramos do papel</span></h2>
+            <p class="text-white/50 text-base">Cada projeto aqui começou com uma ideia na cabeça de alguém. Como a sua.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="group relative aspect-[3/4] overflow-hidden rounded-2xl shadow-xl gsap-reveal">
+                <img src="assets/img/reais/personalizada-2.jpg" alt="Chalé exclusivo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-dsDark to-transparent opacity-70"></div>
+                <div class="absolute bottom-6 left-6 text-white"><span class="font-bold text-xs uppercase tracking-widest opacity-70 mb-1 block">Chalé Rústico</span><p class="text-lg font-black uppercase">Casa Serrinha</p></div>
+            </div>
+            <div class="group relative aspect-[3/4] overflow-hidden rounded-2xl shadow-xl gsap-reveal" data-delay="0.15">
+                <img src="assets/img/reais/personalizada-3.jpg" alt="Celeiro americano" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-dsDark to-transparent opacity-70"></div>
+                <div class="absolute bottom-6 left-6 text-white"><span class="font-bold text-xs uppercase tracking-widest opacity-70 mb-1 block">Celeiro Americano</span><p class="text-lg font-black uppercase">Barn Style Horizonte</p></div>
+            </div>
+            <div class="group relative aspect-[3/4] overflow-hidden rounded-2xl shadow-xl gsap-reveal" data-delay="0.3">
+                <img src="assets/img/reais/personalizada-4.jpg" alt="Projeto exclusivo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-dsDark to-transparent opacity-70"></div>
+                <div class="absolute bottom-6 left-6 text-white"><span class="font-bold text-xs uppercase tracking-widest opacity-70 mb-1 block">Projeto Exclusivo</span><p class="text-lg font-black uppercase">Residência Delta</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CTA FINAL ===================== -->
+<section class="py-28 bg-white relative overflow-hidden text-center">
+    <div class="absolute inset-0 wood-texture opacity-60"></div>
+    <div class="max-w-[900px] mx-auto px-8 relative z-10">
+        <h2 class="text-4xl md:text-6xl font-black text-dsDark uppercase mb-6 leading-[0.95] gsap-reveal" style="letter-spacing:-2px;">
+            Sua ideia é única. <br><span class="text-dsAccent">A obra também será.</span>
+        </h2>
+        <p class="text-dsDark/60 text-xl max-w-lg mx-auto mb-12 leading-relaxed gsap-reveal">
+            Fale agora com um especialista da Construtora HS. Orçamento gratuito, conversa sem pressão e compromisso real com o seu projeto.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center gsap-reveal">
+            <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20um%20or%C3%A7amento%20para%20uma%20obra%20personalizada!" target="_blank" class="btn-zap inline-flex items-center justify-center gap-3 px-14 py-6 rounded-xl font-black uppercase text-base tracking-widest shadow-2xl">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Falar com Especialista Agora
+            </a>
+            <a href="contato.html" class="btn-primary inline-flex items-center justify-center px-14 py-6 rounded-xl font-black uppercase text-base tracking-widest">
+                Solicitar Orçamento Gratuito
+            </a>
+        </div>
+        <p class="text-dsDark/30 text-xs mt-6 font-medium">✓ Resposta em até 2 horas &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ 100% gratuito</p>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER MÍNIMO -->
+<footer class="bg-dsDark py-10 border-t border-white/5 text-center">
+    <img src="assets/img/logo.webp" alt="Construtora HS" class="h-14 w-auto mx-auto opacity-50 mb-4 brightness-0 invert">
+    <p class="text-white/20 text-[10px] tracking-wider uppercase font-bold">© 2026 Construtora HS · Todos os direitos reservados · Vista Alegre do Alto - SP</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const nav = document.getElementById('lpNav');
+    const logo = document.getElementById('nav-logo');
+    let lastY = 0;
+
+    window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y < 60) { nav.classList.remove('scrolled','hidden-nav'); if(logo) logo.style.filter='none'; }
+        else {
+            nav.classList.add('scrolled');
+            if(logo) logo.style.filter='none';
+            if (y > lastY && y > 200) nav.classList.add('hidden-nav');
+            else if (y < lastY) nav.classList.remove('hidden-nav');
+        }
+        lastY = y;
+        document.getElementById('stickyCta').classList.toggle('visible', y > 600);
+    });
+
+    gsap.utils.toArray('.gsap-reveal').forEach(el => {
+        gsap.to(el, { opacity:1, y:0, duration:1.1, delay:parseFloat(el.dataset.delay||0), ease:'power4.out', scrollTrigger:{ trigger:el, start:'top 88%' } });
+    });
+    gsap.utils.toArray('.gsap-fade').forEach(el => {
+        gsap.fromTo(el, {opacity:0,y:40},{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}});
+    });
+</script>
+</body>
+</html>

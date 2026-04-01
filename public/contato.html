@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="lenis lenis-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Construtora HS - Engenharia de Alto Padrão</title>
+    
+    <!-- Meta tags for SEO & Performance -->
+    <meta name="description" content="Construtora HS. Excelência em construções de alto padrão, projetos comerciais e industriais. Construindo o futuro com qualidade.">
+    <link rel="preconnect" href="https://player.vimeo.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dsDark: '#0F1228',
+                        dsAccent: '#f18e39',
+                        dsBlue: '#3c43aa',
+                        dsSecBlue: '#3c43aa',
+                        dsDarkBlue: '#1e245a',
+                        dsBg: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        mono: ['monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Snyder & HBW Styles (from DS) -->
+    <link href="https://use.typekit.net" rel="preconnect"/>
+    <link href="https://p.typekit.net" rel="preconnect"/>
+    <link href="assets/vendor/snyder/app_0cf8237cb8dc.css" rel="stylesheet"/>
+    <link href="assets/vendor/snyder/wic4jic_a11143a54c02.css" rel="stylesheet"/>
+    <link href="assets/vendor/hbw/2rsxp_a3deac85bef4.css" media="screen" rel="stylesheet" type="text/css"/>
+
+    <!-- Lenis CSS for Premium Smooth Scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.css">
+
+    <style>
+        /* Design System Variables */
+        :root {
+            --ds-bg: #ffffff; 
+            --ds-dark: #0F1228;
+            --ds-text: #0F1228;
+            --ds-border: rgba(15, 18, 40, 0.15);
+            --ds-accent: #f18e39;
+            --ds-sec-blue: #3c43aa;
+            --ds-dark-blue: #1e245a; /* Novo Azul Escuro Premium */
+        }
+
+        body { 
+            background-color: var(--ds-bg);
+            color: var(--ds-text);
+            font-family: "Montserrat", sans-serif !important;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Enforce Montserrat globally */
+        h1, h2, h3, h4, h5, h6, p, span, a, input, textarea, select, button {
+            font-family: 'Montserrat', sans-serif !important;
+        }
+
+        /* Buttons matching Design System */
+        .btn--primary { 
+            background-color: var(--ds-accent) !important; 
+            color: #ffffff !important; 
+            border: 2px solid var(--ds-accent) !important; 
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+        .btn--primary:hover { 
+            background-color: #d1782d !important; 
+            border-color: #d1782d !important;
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 25px rgba(241, 142, 57, 0.35); 
+        }
+        
+        .btn--outline { 
+            border: 2px solid #ffffff !important; 
+            color: #ffffff !important; 
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+            background: transparent;
+        }
+        .btn--outline:hover { 
+            background-color: var(--ds-accent) !important; 
+            color: #ffffff !important; 
+            border-color: var(--ds-accent) !important; 
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(241, 142, 57, 0.2);
+        }
+
+        /* Navigation Styles */
+        .ds-nav { 
+            position: fixed; top: 0; width: 100%; z-index: 9999; 
+            background: transparent; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 1.8rem 0; 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease, padding 0.4s ease;
+        }
+        .ds-nav.nav--scrolled, .ds-nav:hover {
+            background: #ffffff !important;
+            padding: 1.2rem 0 !important;
+            border-bottom: 1px solid var(--ds-border) !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .ds-nav.nav--hidden { transform: translateY(-100%); }
+        .nav-container { display: grid; grid-template-columns: auto 1fr auto; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+        .ds-nav ul { display: flex; list-style: none; margin: 0; padding: 0; gap: 3rem; justify-content: center; }
+        
+        .nav-link { 
+            color: #ffffff; text-decoration: none; font-weight: 700; 
+            font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; 
+            position: relative; transition: all 0.3s ease; 
+        }
+        .ds-nav.nav--scrolled .nav-link, .ds-nav:hover .nav-link { color: var(--ds-dark) !important; }
+        .nav-link:hover { color: var(--ds-accent) !important; }
+        .nav-link::after { 
+            content: ''; position: absolute; width: 0; height: 2px; 
+            bottom: -6px; left: 50%; transform: translateX(-50%); 
+            background-color: var(--ds-accent); transition: width 0.3s ease; 
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .nav-actions { display: flex; align-items: center; gap: 20px; }
+        .nav-socials { display: flex; align-items: center; gap: 15px; }
+        .nav-social-link { transition: transform 0.3s ease, opacity 0.3s ease; opacity: 0.8; color: #ffffff; }
+        .nav-social-link:hover { transform: translateY(-3px); opacity: 1; color: var(--ds-accent) !important; }
+        .ds-nav.nav--scrolled .nav-social-link, .ds-nav:hover .nav-social-link { color: var(--ds-dark); }
+        
+        .btn-nav-contact { 
+            background-color: var(--ds-accent); color: #ffffff !important; 
+            padding: 10px 20px; border-radius: 4px; text-decoration: none; 
+            font-weight: 700; font-size: 11px; text-transform: uppercase; 
+            letter-spacing: 0.1em; border: 2px solid var(--ds-accent); 
+            transition: all 0.3s ease; 
+        }
+        .btn-nav-contact:hover { background-color: transparent !important; color: var(--ds-accent) !important; }
+        .ds-nav.nav--scrolled .btn-nav-contact:hover, .ds-nav:hover .btn-nav-contact:hover { background-color: #ffffff !important; }
+        
+        /* Dropdown Styles - Mega Menu Upgrade */
+        .nav-link { display: flex; align-items: center; gap: 6px; }
+        .nav-item-dropdown { position: relative; }
+        .nav-dropdown-menu {
+            position: absolute; top: calc(100% + 15px); left: 50%; transform: translateX(-50%) translateY(10px);
+            background: #ffffff; min-width: 420px; padding: 1rem;
+            border-radius: 16px; border-top: 4px solid var(--ds-accent);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+            opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            display: flex; flex-direction: column; gap: 4px;
+        }
+        .nav-item-dropdown:hover .nav-dropdown-menu {
+            opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+        }
+        /* Dropdown Items (Standardized Blocks) */
+        .nav-dropdown-item {
+            display: flex; align-items: center; gap: 20px; width: 100%;
+            padding: 18px 20px; border-radius: 12px;
+            text-decoration: none; transition: all 0.3s ease;
+            background: transparent; min-height: 95px; /* Uniform Height */
+        }
+        .nav-dropdown-item:hover {
+            background-color: rgba(60, 67, 170, 0.03); /* Subtle Blue Tint */
+            transform: scale(1.02);
+        }
+        .icon-box {
+            flex-shrink: 0; width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(60, 67, 170, 0.05); color: var(--ds-sec-blue);
+            border-radius: 10px; transition: all 0.3s ease;
+        }
+        .nav-dropdown-item:hover .icon-box {
+            background: var(--ds-accent); color: #ffffff;
+        }
+        .text-box { display: flex; flex-direction: column; gap: 2px; }
+        .dropdown-title {
+            color: var(--ds-dark); font-weight: 800; font-size: 13px;
+            text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.2;
+        }
+        .dropdown-desc {
+            color: #666; font-size: 11px; font-weight: 500;
+            line-height: 1.4; max-width: 280px;
+        }
+        /* Dropdown connector area */
+        .nav-item-dropdown::after {
+            content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 25px;
+        }
+
+        /* Hero Section */
+        .hero-section { 
+            position: relative; height: 100vh; min-height: 800px;
+            display: flex; align-items: center; overflow: hidden; 
+            background-color: var(--ds-dark); 
+        }
+        /* Sophisticated overlay gradient */
+        .hero-overlay { 
+            position: absolute; inset: 0; 
+            background: linear-gradient(90deg, rgba(15, 18, 40, 0.9) 0%, rgba(15, 18, 40, 0.6) 50%, rgba(15, 18, 40, 0.3) 100%); 
+            z-index: 2; 
+        }
+        .hero-video-bg { 
+            position: absolute; inset: 0; width: 100%; height: 100%; 
+            object-fit: cover; z-index: 1; opacity: 0.85; 
+            transform: scale(1.05); /* Pre-scaled for GSAP load effect */
+        }
+        
+        .hero-content-wrapper { 
+            position: relative; z-index: 10; width: 100%; 
+            max-width: 1400px; margin: 0 auto; padding: 0 40px; 
+            color: #ffffff; 
+        }
+        
+        /* Glassmorphism subheadline bar */
+        .hero-subheadline-bar {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-left: 4px solid var(--ds-accent);
+        }
+
+        /* Trust Elements */
+        .trust-metrics-container { 
+            position: absolute; bottom: 0; left: 0; width: 100%; 
+            background: linear-gradient(to top, rgba(15, 18, 40, 0.95) 0%, rgba(15, 18, 40, 0.8) 50%, transparent 100%); 
+            z-index: 11; padding-bottom: 2.5rem; padding-top: 5rem; 
+        }
+        .trust-item { 
+            border-left: 2px solid rgba(241, 142, 57, 0.5); 
+            padding-left: 1.5rem; 
+            transition: border-color 0.3s;
+        }
+        .trust-item:hover { border-left-color: var(--ds-accent); }
+        .trust-number { 
+            font-size: 3rem; font-weight: 900; line-height: 1; 
+            color: var(--ds-accent); font-family: "Montserrat", sans-serif; 
+            display: block; margin-bottom: 0.3rem; 
+        }
+        .trust-label { 
+            font-size: 0.75rem; text-transform: uppercase; 
+            letter-spacing: 0.15em; color: rgba(255, 255, 255, 0.7); 
+            font-weight: 700; font-family: "Montserrat", sans-serif;
+        }
+
+        /* GSAP Initial States */
+        .gsap-reveal { opacity: 0; transform: translateY(40px); visibility: hidden; }
+        .gsap-line { transform-origin: left; transform: scaleX(0); }
+
+        /* Responsive Fixes */
+        @media (max-width: 1024px) {
+            .ds-nav ul { display: none; } /* Hide primary nav on tablet/mobile for now */
+            .hero-section { min-height: 100vh; }
+            .hero-overlay { background: linear-gradient(180deg, rgba(15, 18, 40, 0.7) 0%, rgba(15, 18, 40, 0.9) 100%); }
+            .trust-metrics-container { position: relative; background: var(--ds-dark); padding-top: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .trust-number { font-size: 2rem; }
+            .btn--primary, .btn--outline { width: 100%; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-dsAccent selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <nav class="ds-nav">
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="#" class="inline-flex items-center h-[50px]">
+                    <img src="assets/img/logo.webp" alt="Construtora HS" class="h-[45px] w-auto transition-all duration-500" id="nav-logo">
+                </a>
+                
+                <!-- Center Links (Updated) -->
+                <ul class="flex items-center gap-10 ml-12">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    
+                    <!-- Services Dropdown (Mega Style) -->
+                    <li class="nav-item-dropdown group">
+                        <a href="servicos-oferecidos.html" class="nav-link">
+                            Serviços Oferecidos
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" class="ml-1 transition-transform group-hover:rotate-180">
+                                <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <!-- Item 1: Residenciais -->
+                            <a href="obras-residenciais.html" class="nav-dropdown-item">
+                                <div class="icon-box">
+                                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                                </div>
+                                <div class="text-box">
+                                    <span class="dropdown-title">Obras residenciais</span>
+                                    <span class="dropdown-desc">Construções de alto padrão com acabamento impecável para o seu novo lar.</span>
+                                </div>
+                            </a>
+                            <!-- Item 2: Galpões -->
+                            <a href="galpoes-industriais.html" class="nav-dropdown-item">
+                                <div class="icon-box">
+                                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                </div>
+                                <div class="text-box">
+                                    <span class="dropdown-title">Galpões Industriais</span>
+                                    <span class="dropdown-desc">Estruturas modulares e soluções robustas para expansão comercial.</span>
+                                </div>
+                            </a>
+                            <!-- Item 3: Personalizadas -->
+                            <a href="servicos-oferecidos.html" class="nav-dropdown-item">
+                                <div class="icon-box">
+                                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9.1e-07M6 15l-5-5L6 5M11 5l5 5-5 5m-5 0l5 5 5-5M11 5l-5 5 5 5m5-5l5-5-5-5"/></svg>
+                                </div>
+                                <div class="text-box">
+                                    <span class="dropdown-title">Obras Personalizadas</span>
+                                    <span class="dropdown-desc">Projetos sob medida que transformam ideias em engenharia de precisão.</span>
+                                </div>
+                            </a>
+                            <!-- Item 4: Coberturas -->
+                            <a href="servicos-oferecidos.html" class="nav-dropdown-item">
+                                <div class="icon-box">
+                                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 10L12 3L21 10M12 3V21M3 21H21"/></svg>
+                                </div>
+                                <div class="text-box">
+                                    <span class="dropdown-title">Soluções em Coberturas</span>
+                                    <span class="dropdown-desc">Vedações térmicas e acústicas com as tecnologias mais modernas do mercado.</span>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li><a href="obras.html" class="nav-link">Obras</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                    <li><a href="sobre-nos.html" class="nav-link">Sobre Nós</a></li>
+                </ul>
+
+                <!-- Right Actions -->
+                <div class="nav-actions ml-auto">
+                    <div class="nav-socials hidden lg:flex">
+                        <a href="https://www.facebook.com/profile.php?id=61561076320295" target="_blank" class="nav-social-link" title="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.14H7v4.21h2.5V23h5V11.67h3.43l.84-4.21Z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/construtoraahs/" target="_blank" class="nav-social-link" title="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.247 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.247-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.247-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.247 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                    <a href="contato.html" class="btn-nav-contact">Falar com Especialista</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN HERO SECTION -->
+    <main>
+        <!-- Compact Hero Section (Contato) -->
+        <section class="relative min-h-[40vh] flex items-center bg-dsDark overflow-hidden z-10 py-20">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="assets/img/reais/fachada-1.jpg" 
+                     alt="Background Hero" 
+                     class="w-full h-full object-cover opacity-30 gs-parallax-hero">
+                <div class="absolute inset-0 bg-dsDark/80"></div>
+            </div>
+
+            <div class="max-w-[1400px] mx-auto px-10 relative z-20 w-full">
+                <!-- Reorganized Layout: Centered or Clean Left -->
+                <div class="flex flex-col md:flex-row items-end justify-between gap-10">
+                    <div class="max-w-3xl gsap-fade-up">
+
+                        
+                        <h1 class="font-sans text-[clamp(40px,5vw,72px)] leading-[1] font-extrabold tracking-[-2px] text-white uppercase">
+                            Fale <span class="text-dsAccent">Conosco</span>
+                        </h1>
+                    </div>
+                    
+                    <div class="max-w-md gsap-fade-up" data-delay="0.2">
+                        <p class="text-white/60 text-base md:text-lg font-medium leading-relaxed border-l-2 border-dsAccent/50 pl-6">
+                            Nossa equipe de engenharia está pronta para transformar seu projeto em realidade. Entre em contato para orçamentos e consultoria técnica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Border Detail -->
+            <div class="absolute bottom-0 left-10 right-10 h-[1px] bg-white/10 z-30"></div>
+        </section>
+
+        <!-- Contact Information Grid -->
+        <section class="py-24 bg-white relative z-20 border-b border-gray-100">
+            <div class="max-w-[1400px] mx-auto px-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                    <!-- Card 1 -->
+                    <div class="gsap-fade-up flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-dsAccent/10 text-dsAccent rounded-2xl flex items-center justify-center mb-8">
+                            <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h4 class="text-dsDark font-bold text-xl uppercase tracking-wider mb-4">Sede Administrativa</h4>
+                        <p class="text-dsDark/60 leading-relaxed font-medium">Rua Juvenal Fernandes Chaves, 387<br>Vista Alegre do Alto - SP</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Juvenal+Fernandes+Chaves,+387,+Vista+Alegre+do+Alto+-+SP" target="_blank" class="mt-6 text-dsAccent font-bold text-xs uppercase tracking-widest hover:underline flex items-center gap-2">
+                            Ver no Google Maps
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="gsap-fade-up flex flex-col items-center text-center" data-delay="0.1">
+                        <div class="w-16 h-16 bg-dsAccent/10 text-dsAccent rounded-2xl flex items-center justify-center mb-8">
+                            <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </div>
+                        <h4 class="text-dsDark font-bold text-xl uppercase tracking-wider mb-4">Atendimento Direto</h4>
+                        <p class="text-dsDark/60 leading-relaxed font-medium">WhatsApp: (16) 9 9760-2144</p>
+                        <a href="https://wa.me/5516997602144" target="_blank" class="mt-6 text-dsAccent font-bold text-xs uppercase tracking-widest hover:underline flex items-center gap-2">
+                            Iniciar Conversa
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="gsap-fade-up flex flex-col items-center text-center" data-delay="0.2">
+                        <div class="w-16 h-16 bg-dsAccent/10 text-dsAccent rounded-2xl flex items-center justify-center mb-8">
+                            <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h4 class="text-dsDark font-bold text-xl uppercase tracking-wider mb-4">E-mail Oficial</h4>
+                        <p class="text-dsDark/60 leading-relaxed font-medium">hsestruturasmetalicasecalhas@gmail.com</p>
+                        <a href="mailto:hsestruturasmetalicasecalhas@gmail.com" class="mt-6 text-dsAccent font-bold text-xs uppercase tracking-widest hover:underline flex items-center gap-2">
+                            Enviar E-mail
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Contact Form & Map Section -->
+        <section class="py-24 lg:py-32 bg-[#f8f9fa] relative z-20">
+            <div class="max-w-[1400px] mx-auto px-10">
+                <div class="flex flex-col lg:flex-row gap-20">
+                    
+                    <!-- Form Side -->
+                    <div class="w-full lg:w-1/2 gsap-fade-up">
+                        <div class="mb-12">
+                            <h2 class="font-sans text-[clamp(28px,3vw,44px)] leading-[1.1] font-extrabold text-dsDark mb-6 tracking-[-1px] uppercase">
+                                Formulário de Orçamento
+                            </h2>
+                            <p class="text-dsDark/60 text-lg font-medium">Preencha os dados abaixo e entraremos em contato em até 24h úteis.</p>
+                        </div>
+
+                        <form action="#" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="col-span-full">
+                                <label class="block text-dsDark/40 text-[10px] uppercase font-black tracking-widest mb-2 ml-1">Nome da Empresa / Nome Completo</label>
+                                <input type="text" placeholder="Ex: Engenharia SA" class="w-full bg-white border border-gray-200 rounded-xl px-6 py-4 focus:outline-none focus:border-dsAccent transition-colors font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-dsDark/40 text-[10px] uppercase font-black tracking-widest mb-2 ml-1">E-mail Corporativo</label>
+                                <input type="email" placeholder="email@empresa.com" class="w-full bg-white border border-gray-200 rounded-xl px-6 py-4 focus:outline-none focus:border-dsAccent transition-colors font-medium">
+                            </div>
+                            <div>
+                                <label class="block text-dsDark/40 text-[10px] uppercase font-black tracking-widest mb-2 ml-1">Telefone / WhatsApp</label>
+                                <input type="tel" placeholder="(11) 99999-9999" class="w-full bg-white border border-gray-200 rounded-xl px-6 py-4 focus:outline-none focus:border-dsAccent transition-colors font-medium">
+                            </div>
+                            <div class="col-span-full">
+                                <label class="block text-dsDark/40 text-[10px] uppercase font-black tracking-widest mb-2 ml-1">Tipo de Projeto</label>
+                                <select class="w-full bg-white border border-gray-200 rounded-xl px-6 py-4 focus:outline-none focus:border-dsAccent transition-colors font-medium appearance-none">
+                                    <option>Construção Residencial de Alto Padrão</option>
+                                    <option>Galpão Industrial / Logístico</option>
+                                    <option>Reforma Corporativa</option>
+                                    <option>Consultoria e Gerenciamento</option>
+                                </select>
+                            </div>
+                            <div class="col-span-full">
+                                <label class="block text-dsDark/40 text-[10px] uppercase font-black tracking-widest mb-2 ml-1">Mensagem ou Detalhes da Obra</label>
+                                <textarea rows="5" placeholder="Descreva brevemente sua necessidade..." class="w-full bg-white border border-gray-200 rounded-xl px-6 py-4 focus:outline-none focus:border-dsAccent transition-colors font-medium resize-none"></textarea>
+                            </div>
+                            <div class="col-span-full">
+                                <button type="submit" class="w-full py-5 bg-dsDark text-white font-bold uppercase text-sm tracking-widest rounded-xl hover:bg-dsAccent transition-all duration-300 shadow-xl active:scale-95">
+                                    Enviar Solicitação Técnica
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Map Side -->
+                    <div class="w-full lg:w-1/2 flex flex-col gap-8 gsap-fade-up" data-delay="0.3">
+                        <div class="h-[400px] lg:h-full min-h-[500px] bg-gray-200 rounded-3xl overflow-hidden shadow-inner border border-gray-100 flex items-center justify-center relative">
+                            <!-- Premium Placeholder Map or Iframe -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3714.4939226593026!2d-48.4239851!3d-21.1852037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b967a57a5a5a5b%3A0x5a5a5a5a5a5a5a5a!2sR.%20Juvenal%20Fernandes%20Chaves%2C%20387%2C%20Vista%20Alegre%20do%20Alto%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0; filter: grayscale(1) contrast(1.2) brightness(0.9);" allowfullscreen="" loading="lazy"></iframe>
+                            <!-- Overlay detail -->
+                            <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl flex items-center justify-between">
+                                <div>
+                                    <h5 class="text-dsDark font-bold text-sm uppercase mb-1">Nossa Sede</h5>
+                                    <p class="text-dsDark/50 text-xs">Visite-nos para um café e consultoria.</p>
+                                </div>
+                                <div class="w-10 h-10 bg-dsAccent text-white rounded-full flex items-center justify-center">
+                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- Bloco de Impacto Full Width -->
+        <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden z-20">
+            <div class="absolute inset-0 bg-dsDark/70 z-10"></div>
+            <img src="assets/img/reais/usina-1.jpg" class="absolute inset-0 w-full h-[130%] object-cover gs-parallax-img -top-[15%] grayscale-[30%]" alt="Impacto Estrutural">
+            
+            <div class="relative z-20 text-center max-w-[1200px] px-10">
+                <h2 class="text-white font-sans font-extrabold text-[clamp( ৩২px,4vw,64px )] leading-[1.1] uppercase tracking-[-1px] gsap-fade-up">
+                    Seu projeto merece a competência da Construtora HS
+                </h2>
+            </div>
+        </section>
+
+
+
+
+    </main>
+
+    <!-- FOOTER SECTION (Inspired by McCarthy Corporate Style) -->
+    <footer class="bg-white pt-16 pb-12 relative z-20 border-t border-gray-100">
+        <div class="max-w-[1400px] mx-auto px-10">
+            
+            <!-- Row 1: Logo & Newsletter -->
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end gap-10 mb-16">
+                <!-- Footer Logo (Increased Size) -->
+                <div class="flex-shrink-0">
+                    <img src="assets/img/logo.webp" alt="Construtora HS" class="h-[85px] w-auto grayscale contrast-125 opacity-90 transition-all hover:grayscale-0">
+                </div>
+
+                <!-- Newsletter CTA -->
+                <div class="flex flex-col items-center md:items-end group">
+                    <a href="#newsletter" class="flex items-center gap-3 group">
+                        <span class="font-sans font-black text-dsDark text-base md:text-lg tracking-[0.1em] uppercase transition-colors group-hover:text-dsAccent">
+                            Inscreva-se em nossa newsletter
+                        </span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="text-dsAccent transition-transform group-hover:translate-x-2">
+                            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Subtle Divider -->
+            <div class="w-full h-[1px] bg-gray-100 mb-12"></div>
+
+            <!-- Row 2: Socials & Institutional Links -->
+            <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12">
+                
+                <!-- Social Media Icons (LHS) -->
+                <div class="flex items-center gap-8">
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/profile.php?id=61561076320295" target="_blank" class="text-dsDark/30 hover:text-dsDark transition-colors">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.14H7v4.21h2.5V23h5V11.67h3.43l.84-4.21Z"/></svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/construtoraahs/" target="_blank" class="text-dsDark/30 hover:text-dsDark transition-colors">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.247 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.247-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.247-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.247 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+
+                <!-- Footer Links (RHS) -->
+                <div class="flex flex-wrap justify-center lg:justify-end gap-x-10 gap-y-4">
+                    <a href="#empresa" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Empresa</a>
+                    <a href="#projetos" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Projetos</a>
+                    <a href="#processo" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Nosso Processo</a>
+                    <a href="#trabalhe" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Trabalhe Conosco</a>
+                    <a href="#contato" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Contato</a>
+                    <a href="#privacidade" class="font-sans font-bold text-dsDark/40 text-[11px] tracking-[0.2em] uppercase hover:text-dsAccent transition-colors">Privacidade</a>
+                </div>
+            </div>
+
+            <!-- Subfooter: Copyright & Dev -->
+            <div class="mt-20 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-dsDark/20 text-[10px] tracking-wider uppercase font-bold">
+                    © 2026 Construtora HS. Todos os direitos reservados. · Vista Alegre do Alto - SP
+                </p>
+                <div class="text-dsDark/20 text-[10px] tracking-wider uppercase font-bold flex items-center gap-2">
+                    <span>Branding & Design por</span>
+                    <a href="#" class="text-dsDark/40 hover:text-dsAccent transition-colors">Weitz</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- GSAP & Lenis Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <!-- Vimeo Player API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <script>
+        // 1. Initialize Custom Smooth Scroll (Lenis)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // 2. Navigation Scroll Effect
+        const nav = document.querySelector('.ds-nav');
+        const logo = document.getElementById('nav-logo');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY <= 50) {
+                nav.classList.remove('nav--scrolled', 'nav--hidden');
+                if(logo) {
+                    logo.style.filter = "none";
+                    logo.style.transform = "scale(1)";
+                }
+            } else {
+                nav.classList.add('nav--scrolled');
+                if(logo) {
+                    logo.style.filter = "none";
+                    logo.style.transform = "scale(0.9)";
+                }
+                
+                if (currentScrollY > lastScrollY && currentScrollY > 200) {
+                    nav.classList.add('nav--hidden');
+                } else if (currentScrollY < lastScrollY) {
+                    nav.classList.remove('nav--hidden');
+                }
+            }
+            lastScrollY = currentScrollY;
+        });
+
+        // 3. GSAP Hero Animations (Contato)
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tlHero = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2 } });
+
+        // Initial setup for cinematic reveal
+        gsap.set(".gsap-reveal", { visibility: "visible", opacity: 0, y: 50 });
+
+        // Play automatically
+        window.addEventListener('load', () => {
+            tlHero.to(".gsap-line", { scaleX: 1, duration: 1 })
+                  .to(".gsap-reveal", { y: 0, opacity: 1, stagger: 0.15 }, "-=0.5");
+        });
+
+
+
+        // 4. Scroll Parallax for Hero Background
+        gsap.to(".gs-parallax-hero", {
+            yPercent: 20,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".gs-parallax-hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // 4.1 Scroll Parallax for Impact Image
+        gsap.to(".gs-parallax-img", {
+            yPercent: 30, // move down as you scroll up
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".gs-parallax-img",
+                start: "top bottom", 
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+
+
+        // 5. General Scroll Animations (Sobre Nós, Projetos, etc)
+        gsap.utils.toArray('.gsap-fade-up').forEach((elem) => {
+            const delay = elem.getAttribute('data-delay') || 0;
+            gsap.fromTo(elem, 
+                { y: 50, opacity: 0 }, 
+                {
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 1, 
+                    delay: parseFloat(delay),
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%", // Dispara quando o elemento atinge 85% da tela
+                    }
+                }
+            );
+        });
+
+
+    </script>
+</body>
+</html>

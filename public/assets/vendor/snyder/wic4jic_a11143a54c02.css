@@ -1,0 +1,67 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * eurostile-extended:
+ *   - http://typekit.com/eulas/00000000000000000001799b
+ *   - http://typekit.com/eulas/00000000000000000001799e
+ * open-sans:
+ *   - http://typekit.com/eulas/000000000000000000011c34
+ *   - http://typekit.com/eulas/000000000000000000011c35
+ *   - http://typekit.com/eulas/000000000000000000011c36
+ *   - http://typekit.com/eulas/000000000000000000011c38
+ *   - http://typekit.com/eulas/000000000000000000011c3b
+ *
+ * © 2009-2026 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2020-05-28 22:32:15 UTC"}*/
+
+@import url("p_0a73495ed6c1.css");
+
+@font-face {
+font-family:"open-sans";
+src:url("l_e50dcf34b611") format("woff2"),url("d_efe6a7916b88") format("woff"),url("a_48247c42b319") format("opentype");
+font-display:auto;font-style:normal;font-weight:700;font-stretch:normal;
+}
+
+@font-face {
+font-family:"open-sans";
+src:url("l_d57eb1b3e87a") format("woff2"),url("d_6f6fce602690") format("woff"),url("a_ec8cbfb8f22f") format("opentype");
+font-display:auto;font-style:italic;font-weight:700;font-stretch:normal;
+}
+
+@font-face {
+font-family:"open-sans";
+src:url("l_72f7dd5bb75c") format("woff2"),url("d_7460e0aa85da") format("woff"),url("a_5e63010a63d2") format("opentype");
+font-display:auto;font-style:normal;font-weight:800;font-stretch:normal;
+}
+
+@font-face {
+font-family:"open-sans";
+src:url("l_053ffa520847") format("woff2"),url("d_73168cee70db") format("woff"),url("a_1e26e455f3f0") format("opentype");
+font-display:auto;font-style:italic;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"open-sans";
+src:url("l_a0cd3ea6ab9a") format("woff2"),url("d_87b8a628ff9c") format("woff"),url("a_aee72f04df26") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+font-family:"eurostile-extended";
+src:url("l_795fefc76e12") format("woff2"),url("d_40941c6c3f37") format("woff"),url("a_51447997e88b") format("opentype");
+font-display:auto;font-style:normal;font-weight:900;font-stretch:normal;
+}
+
+@font-face {
+font-family:"eurostile-extended";
+src:url("l_26888880c0b9") format("woff2"),url("d_f6ab250a5615") format("woff"),url("a_567939d132d3") format("opentype");
+font-display:auto;font-style:italic;font-weight:900;font-stretch:normal;
+}
+
+.tk-open-sans { font-family: "open-sans",sans-serif; }
+.tk-open-sans-condensed { font-family: "open-sans-condensed",sans-serif; }
+.tk-eurostile-extended { font-family: "eurostile-extended",sans-serif; }

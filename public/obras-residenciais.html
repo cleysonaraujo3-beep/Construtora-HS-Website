@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construa sua Casa sem Dor de Cabeça | Construtora HS</title>
+    <meta name="description" content="Construa sua casa com prazo garantido, orçamento fechado e zero estresse. A Construtora HS cuida de tudo. Fale agora no WhatsApp e receba seu orçamento.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { dsDark: '#0F1228', dsAccent: '#f18e39', dsBlue: '#3c43aa' }, fontFamily: { sans: ['Montserrat', 'sans-serif'] } } }
+        }
+    </script>
+    <style>
+        :root { --ds-dark:#0F1228; --ds-accent:#f18e39; --ds-blue:#3c43aa; --ds-border:rgba(15,18,40,0.1); }
+        body { font-family:'Montserrat',sans-serif!important; background:#fff; color:var(--ds-dark); overflow-x:hidden; }
+        h1,h2,h3,h4,p,span,a,button { font-family:'Montserrat',sans-serif!important; }
+
+        /* NAV SIMPLIFICADO */
+        .lp-nav { position:fixed; top:0; width:100%; z-index:9999; background:transparent; padding:1.6rem 0; transition:all .4s ease; }
+        .lp-nav.scrolled { background:#fff!important; padding:1rem 0!important; box-shadow:0 4px 30px rgba(0,0,0,.08); }
+        .lp-nav.hidden-nav { transform:translateY(-100%); }
+        .nav-logo-img { height:42px; width:auto; transition:all .4s; }
+
+        /* HERO */
+        .hero-gradient { background:linear-gradient(100deg,rgba(15,18,40,.95) 0%,rgba(15,18,40,.7) 50%,rgba(15,18,40,.15) 100%); }
+
+        /* BOTÕES */
+        .btn-zap { background:#25D366; color:#fff; transition:all .3s cubic-bezier(.175,.885,.32,1.275); }
+        .btn-zap:hover { transform:scale(1.04) translateY(-2px); box-shadow:0 16px 40px rgba(37,211,102,.35); }
+        .btn-primary { background:var(--ds-accent); color:#fff; border:2px solid var(--ds-accent); transition:all .3s ease; }
+        .btn-primary:hover { background:transparent; color:var(--ds-accent); }
+        .btn-outline-white { border:2px solid rgba(255,255,255,.4); color:#fff; transition:all .3s ease; }
+        .btn-outline-white:hover { background:#fff; color:var(--ds-dark); border-color:#fff; }
+
+        /* TRUST BAR */
+        .trust-number { font-size:clamp(2rem,4vw,3rem); font-weight:900; color:var(--ds-blue); line-height:1; }
+
+        /* MÉTODO HS */
+        .metodo-step { border-left:3px solid var(--ds-accent); transition:all .3s ease; }
+        .metodo-step:hover { border-left-color:var(--ds-blue); background:rgba(60,67,170,.03); }
+
+        /* URGÊNCIA */
+        .urgency-badge { background:rgba(241,142,57,.15); border:1px solid rgba(241,142,57,.3); }
+
+        /* STICKY CTA */
+        .sticky-cta { position:fixed; bottom:0; left:0; right:0; z-index:998; transform:translateY(100%); transition:transform .5s cubic-bezier(.4,0,.2,1); }
+        .sticky-cta.visible { transform:translateY(0); }
+
+        /* FLOATING WHATSAPP */
+        .floating-zap { position:fixed; bottom:90px; right:28px; z-index:999; width:58px; height:58px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 28px rgba(37,211,102,.45); transition:all .3s ease; }
+        .floating-zap:hover { transform:scale(1.12) rotate(8deg); }
+
+        /* CARD GARANTIA */
+        .garantia-card { border:1px solid rgba(0,0,0,.06); transition:all .4s ease; }
+        .garantia-card:hover { border-color:var(--ds-accent); transform:translateY(-8px); box-shadow:0 30px 60px -15px rgba(0,0,0,.1); }
+
+        /* GSAP */
+        .gsap-reveal { opacity:0; transform:translateY(28px); }
+        .gsap-fade { opacity:0; }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20fazer%20um%20Or%C3%A7amento!" target="_blank" class="floating-zap">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- STICKY BOTTOM CTA -->
+<div class="sticky-cta" id="stickyCta">
+    <div class="bg-dsDark border-t border-white/10 py-4 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-white text-center sm:text-left">
+                <p class="font-black text-sm uppercase tracking-wider">Ainda avaliando?</p>
+                <p class="text-white/60 text-xs">Nosso especialista tira todas as suas dúvidas agora.</p>
+            </div>
+            <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20fazer%20um%20Or%C3%A7amento!" target="_blank" class="btn-zap px-8 py-3 rounded-lg font-black uppercase text-xs tracking-widest flex items-center gap-3 whitespace-nowrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Falar com Especialista
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- NAV SIMPLIFICADO (logo + CTA apenas) -->
+<header>
+    <nav class="lp-nav" id="lpNav">
+        <div class="max-w-[1400px] mx-auto px-8 flex items-center justify-between">
+            <a href="index.html">
+                <img src="assets/img/logo.webp" alt="Construtora HS" class="nav-logo-img" id="nav-logo">
+            </a>
+            <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20fazer%20um%20Or%C3%A7amento!" target="_blank" class="btn-zap px-6 py-3 rounded-lg font-black uppercase text-xs tracking-widest flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Falar no WhatsApp
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main>
+<!-- ===================== HERO ===================== -->
+<section class="relative min-h-screen flex items-center bg-dsDark overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="assets/img/reais/residencial-1.jpeg" alt="Casa de Alto Padrão" class="w-full h-full object-cover opacity-55">
+        <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+    <div class="max-w-[1300px] mx-auto px-8 relative z-10 w-full pt-24 pb-16">
+        <div class="max-w-3xl">
+
+            <h1 class="text-[clamp(38px,5.5vw,78px)] leading-[0.95] font-black text-white uppercase mb-6 gsap-reveal" style="letter-spacing:-3px;">
+                Sua casa pronta, <br><span class="text-dsAccent">no prazo e no preço.</span>
+            </h1>
+            <p class="text-white/80 text-xl md:text-2xl font-medium max-w-xl mb-10 leading-relaxed gsap-reveal">
+                Cuidamos de <strong class="text-white">100% da obra</strong> enquanto você foca no que importa. Prazo garantido em contrato. Sem surpresas.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 gsap-reveal">
+                <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20fazer%20um%20Or%C3%A7amento!" target="_blank" class="btn-zap px-10 py-5 rounded-xl font-black uppercase text-sm tracking-widest flex items-center justify-center gap-3 shadow-2xl">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Quero construir sem dor de cabeça
+                </a>
+                <a href="contato.html" class="btn-outline-white px-10 py-5 rounded-xl font-black uppercase text-sm tracking-widest flex items-center justify-center">
+                    Solicitar Orçamento Grátis
+                </a>
+            </div>
+            <p class="text-white/40 text-xs mt-4 font-medium">✓ Resposta em até 2 horas &nbsp;·&nbsp; ✓ Sem compromisso &nbsp;·&nbsp; ✓ 100% gratuito</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== TRUST BAR ===================== -->
+<section class="py-12 bg-white border-b border-gray-100">
+    <div class="max-w-[1200px] mx-auto px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="gsap-reveal">
+                <div class="trust-number">+25</div>
+                <p class="text-dsDark/60 font-bold text-xs uppercase tracking-widest mt-2">Casas Entregues</p>
+            </div>
+            <div class="gsap-reveal" data-delay="0.1">
+                <div class="trust-number">99%</div>
+                <p class="text-dsDark/60 font-bold text-xs uppercase tracking-widest mt-2">Clientes Satisfeitos</p>
+            </div>
+            <div class="gsap-reveal" data-delay="0.2">
+                <div class="trust-number">+15</div>
+                <p class="text-dsDark/60 font-bold text-xs uppercase tracking-widest mt-2">Anos no Mercado</p>
+            </div>
+            <div class="gsap-reveal" data-delay="0.3">
+                <div class="trust-number">0</div>
+                <p class="text-dsDark/60 font-bold text-xs uppercase tracking-widest mt-2">Obras Abandonadas</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== DOR ===================== -->
+<section class="pt-24 pb-36 bg-white relative z-10">
+    <div class="max-w-[1100px] mx-auto px-8">
+        <div class="max-w-3xl mx-auto text-center">
+            <span class="text-dsBlue font-black uppercase tracking-[0.3em] text-xs mb-4 block gsap-reveal">Antes de decidir, leia isso</span>
+            <h2 class="text-4xl md:text-5xl font-black text-dsDark uppercase mb-6 leading-[1.05] gsap-reveal">
+                Construir sozinho <br><span class="text-dsBlue">pode ser um pesadelo.</span>
+            </h2>
+            <p class="text-dsDark/60 text-lg mb-14 leading-relaxed gsap-reveal">A maioria das pessoas que tenta gerenciar a própria obra acaba sofrendo com isso:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-left mb-20 gsap-reveal">
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-red-50 border border-red-100">
+                    <span class="text-red-500 text-2xl leading-none mt-0.5">✕</span>
+                    <div><p class="font-black text-dsDark text-sm mb-1">Obra atrasando meses — ou anos</p><p class="text-dsDark/50 text-xs leading-relaxed">E você pagando aluguel enquanto espera.</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-red-50 border border-red-100">
+                    <span class="text-red-500 text-2xl leading-none mt-0.5">✕</span>
+                    <div><p class="font-black text-dsDark text-sm mb-1">Custo estourando o planejado</p><p class="text-dsDark/50 text-xs leading-relaxed">Pedindo dinheiro emprestado para terminar.</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-red-50 border border-red-100">
+                    <span class="text-red-500 text-2xl leading-none mt-0.5">✕</span>
+                    <div><p class="font-black text-dsDark text-sm mb-1">Pedreiro sumindo sem avisar</p><p class="text-dsDark/50 text-xs leading-relaxed">E você perdendo semanas para encontrar outro.</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-5 rounded-xl bg-red-50 border border-red-100">
+                    <span class="text-red-500 text-2xl leading-none mt-0.5">✕</span>
+                    <div><p class="font-black text-dsDark text-sm mb-1">Problemas que aparecem depois</p><p class="text-dsDark/50 text-xs leading-relaxed">Rachaduras, infiltrações, acabamento ruim.</p></div>
+                </div>
+            </div>
+            <div class="relative gsap-fade pb-12">
+                <img src="assets/img/reais/residencial-2.jpg" alt="Obra residencial em andamento" class="rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover max-h-[460px]">
+                <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-dsBlue px-10 py-5 rounded-xl shadow-2xl min-w-[320px] text-center">
+                    <span class="text-white font-black text-4xl block">90%</span>
+                    <span class="text-white/70 text-[10px] font-bold uppercase tracking-widest">das obras sem gestão ultrapassam o prazo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== MÉTODO HS ===================== -->
+<section class="py-24 bg-dsDark text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-dsAccent/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+    <div class="max-w-[1100px] mx-auto px-8 relative z-10">
+        <div class="text-center mb-16 gsap-reveal">
+            <span class="inline-block bg-dsAccent/20 text-dsAccent font-black uppercase tracking-[0.25em] text-xs px-5 py-2 rounded-full mb-6">Nosso Diferencial</span>
+            <h2 class="text-4xl md:text-5xl font-black uppercase mb-6 leading-tight">
+                O <span class="text-dsAccent">Método HS</span> de <br>Construção Segura
+            </h2>
+            <p class="text-white/60 text-lg max-w-xl mx-auto">Um sistema desenvolvido para que você nunca passe pelo pesadelo de uma obra descontrolada.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-dsAccent transition-all group gsap-reveal">
+                <div class="w-14 h-14 bg-dsAccent/15 rounded-xl flex items-center justify-center mb-6 group-hover:bg-dsAccent transition-all">
+                    <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#f18e39" stroke-width="2" class="group-hover:stroke-white transition-all"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                </div>
+                <h3 class="font-black uppercase text-lg mb-3 tracking-tight">Planejamento Blindado</h3>
+                <p class="text-white/50 text-sm leading-relaxed">Antes de uma pedra ser colocada, você recebe um plano detalhado com cada etapa, prazo e custo documentados.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-dsAccent transition-all group gsap-reveal" data-delay="0.15">
+                <div class="w-14 h-14 bg-dsAccent/15 rounded-xl flex items-center justify-center mb-6 group-hover:bg-dsAccent transition-all">
+                    <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#f18e39" stroke-width="2" class="group-hover:stroke-white transition-all"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                </div>
+                <h3 class="font-black uppercase text-lg mb-3 tracking-tight">Acompanhamento Diário</h3>
+                <p class="text-white/50 text-sm leading-relaxed">Nosso gestor de obra visita o canteiro todos os dias. Você recebe relatório semanal com fotos e status de cada etapa.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-dsAccent transition-all group gsap-reveal" data-delay="0.3">
+                <div class="w-14 h-14 bg-dsAccent/15 rounded-xl flex items-center justify-center mb-6 group-hover:bg-dsAccent transition-all">
+                    <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#f18e39" stroke-width="2" class="group-hover:stroke-white transition-all"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h3 class="font-black uppercase text-lg mb-3 tracking-tight">Garantia Pós-Obra</h3>
+                <p class="text-white/50 text-sm leading-relaxed">Entregamos com garantia formal. Qualquer problema nos anos seguintes, a Construtora HS resolve. Sem discussão.</p>
+            </div>
+        </div>
+        <!-- CTA intermediário -->
+        <div class="text-center gsap-reveal">
+            <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20saber%20mais%20sobre%20o%20M%C3%A9todo%20HS!" target="_blank" class="btn-zap inline-flex items-center gap-3 px-12 py-5 rounded-xl font-black uppercase text-sm tracking-widest shadow-xl">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Quero conhecer o Método HS
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== COMO GARANTIMOS ===================== -->
+<section class="py-24 bg-gray-50">
+    <div class="max-w-[1000px] mx-auto px-8">
+        <div class="text-center mb-16 gsap-reveal">
+            <h2 class="text-4xl md:text-5xl font-black text-dsDark uppercase mb-4 leading-tight">Como garantimos sua obra <span class="text-dsBlue">sem dor de cabeça</span></h2>
+            <p class="text-dsDark/60 text-lg">Um processo simples e transparente do início ao fim.</p>
+        </div>
+        <div class="space-y-5">
+            <div class="metodo-step bg-white p-8 pl-10 rounded-2xl flex items-start gap-6 gsap-reveal">
+                <div class="flex-shrink-0 w-12 h-12 bg-dsBlue text-white rounded-xl flex items-center justify-center font-black text-xl">1</div>
+                <div>
+                    <h3 class="font-black text-dsDark uppercase text-base mb-2">Reunião de Diagnóstico Gratuita</h3>
+                    <p class="text-dsDark/60 text-sm leading-relaxed">Entendemos seu projeto, terreno e orçamento disponível. Já saímos com um plano inicial e cronograma estimado. <strong class="text-dsDark">Você não paga nada por isso.</strong></p>
+                </div>
+            </div>
+            <div class="metodo-step bg-white p-8 pl-10 rounded-2xl flex items-start gap-6 gsap-reveal" data-delay="0.1">
+                <div class="flex-shrink-0 w-12 h-12 bg-dsBlue text-white rounded-xl flex items-center justify-center font-black text-xl">2</div>
+                <div>
+                    <h3 class="font-black text-dsDark uppercase text-base mb-2">Orçamento Fechado e Assinado</h3>
+                    <p class="text-dsDark/60 text-sm leading-relaxed">Você recebe um contrato com valor total fixo. <strong class="text-dsDark">O que está escrito é o que você paga.</strong> Nenhuma cobrança extra aparece no meio da obra.</p>
+                </div>
+            </div>
+            <div class="metodo-step bg-white p-8 pl-10 rounded-2xl flex items-start gap-6 gsap-reveal" data-delay="0.2">
+                <div class="flex-shrink-0 w-12 h-12 bg-dsBlue text-white rounded-xl flex items-center justify-center font-black text-xl">3</div>
+                <div>
+                    <h3 class="font-black text-dsDark uppercase text-base mb-2">Execução com Gestor Dedicado</h3>
+                    <p class="text-dsDark/60 text-sm leading-relaxed">Um responsável técnico acompanha <strong class="text-dsDark">diariamente</strong> sua obra. Você recebe relatório semanal com fotos, progresso e próximas etapas.</p>
+                </div>
+            </div>
+            <div class="metodo-step bg-white p-8 pl-10 rounded-2xl flex items-start gap-6 gsap-reveal" data-delay="0.3">
+                <div class="flex-shrink-0 w-12 h-12 bg-dsAccent text-white rounded-xl flex items-center justify-center font-black text-xl">✓</div>
+                <div>
+                    <h3 class="font-black text-dsDark uppercase text-base mb-2">Entrega com Garantia Formal</h3>
+                    <p class="text-dsDark/60 text-sm leading-relaxed">Sua casa entregue no prazo combinado. Assinamos termo de garantia pós-obra. <strong class="text-dsDark">Qualquer problema é nossa responsabilidade.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== PROVA SOCIAL ===================== -->
+<section class="py-16 bg-dsAccent">
+    <div class="max-w-[1000px] mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div><span class="text-white font-black text-6xl block mb-2">+25</span><span class="text-white/80 font-bold uppercase tracking-widest text-xs">Obras Entregues</span></div>
+            <div><span class="text-white font-black text-6xl block mb-2">99%</span><span class="text-white/80 font-bold uppercase tracking-widest text-xs">Satisfação Garantida</span></div>
+            <div><span class="text-white font-black text-6xl block mb-2">0</span><span class="text-white/80 font-bold uppercase tracking-widest text-xs">Obras Não Entregues</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== GALERIA ===================== -->
+<section class="py-24 bg-white">
+    <div class="max-w-[1200px] mx-auto px-8">
+        <div class="text-center mb-16 gsap-reveal">
+            <h2 class="text-4xl md:text-5xl font-black text-dsDark uppercase mb-4 leading-tight">Veja o que <span class="text-dsBlue">já entregamos</span></h2>
+            <p class="text-dsDark/60 text-base">Cada casa aqui representa uma família que dormiu tranquila durante toda a obra.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="group relative aspect-video overflow-hidden rounded-2xl shadow-xl gsap-reveal">
+                <img src="assets/img/reais/residencial-3.jpg" alt="Projeto Residencial HS" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-dsDark to-transparent opacity-60"></div>
+                <div class="absolute bottom-6 left-6 text-white"><span class="font-bold text-xs uppercase tracking-widest opacity-70 mb-1 block">Residencial de Luxo</span><p class="text-lg font-black uppercase">Residência Alpha</p></div>
+            </div>
+            <div class="group relative aspect-video overflow-hidden rounded-2xl shadow-xl gsap-reveal" data-delay="0.15">
+                <img src="assets/img/reais/residencial-4.jpg" alt="Projeto Residencial HS" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-dsDark to-transparent opacity-60"></div>
+                <div class="absolute bottom-6 left-6 text-white"><span class="font-bold text-xs uppercase tracking-widest opacity-70 mb-1 block">Arquitetura Moderna</span><p class="text-lg font-black uppercase">Villa Horizonte</p></div>
+            </div>
+            <div class="group relative aspect-video overflow-hidden rounded-2xl shadow-xl gsap-reveal" data-delay="0.3">
+                <img src="assets/img/reais/residencial-5.jpg" alt="Projeto Residencial HS" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-dsDark to-transparent opacity-60"></div>
+                <div class="absolute bottom-6 left-6 text-white"><span class="font-bold text-xs uppercase tracking-widest opacity-70 mb-1 block">Alto Padrão</span><p class="text-lg font-black uppercase">Casa Jardim</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===================== CTA FINAL ===================== -->
+<section class="py-28 bg-dsDark relative overflow-hidden text-center">
+    <div class="absolute inset-0 opacity-5" style="background:repeating-linear-gradient(-45deg,transparent,transparent 10px,#f18e39 10px,#f18e39 11px)"></div>
+    <div class="max-w-[900px] mx-auto px-8 relative z-10">
+        <h2 class="text-4xl md:text-6xl font-black text-white uppercase mb-6 leading-[0.95] gsap-reveal" style="letter-spacing:-2px;">
+            Pronto para construir <br><span class="text-dsAccent">do jeito certo?</span>
+        </h2>
+        <p class="text-white/60 text-xl max-w-lg mx-auto mb-12 leading-relaxed gsap-reveal">
+            Fale agora com um especialista. A conversa é gratuita, sem pressão e pode ser o início da sua casa dos sonhos.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center gsap-reveal">
+            <a href="https://wa.me/5516997602144?text=Ol%C3%A1%20vim%20pelo%20site,%20gostaria%20de%20fazer%20um%20Or%C3%A7amento!" target="_blank" class="btn-zap inline-flex items-center justify-center gap-3 px-14 py-6 rounded-xl font-black uppercase text-base tracking-widest shadow-2xl">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                Falar com Especialista Agora
+            </a>
+            <a href="contato.html" class="btn-outline-white inline-flex items-center justify-center px-14 py-6 rounded-xl font-black uppercase text-base tracking-widest">
+                Solicitar Orçamento
+            </a>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- FOOTER MÍNIMO -->
+<footer class="bg-white py-10 border-t border-gray-100 text-center">
+    <img src="assets/img/logo.webp" alt="Construtora HS" class="h-14 w-auto mx-auto grayscale opacity-70 mb-4">
+    <p class="text-dsDark/25 text-[10px] tracking-wider uppercase font-bold">© 2026 Construtora HS · Todos os direitos reservados · Vista Alegre do Alto - SP</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Nav scroll
+    const nav = document.getElementById('lpNav');
+    const logo = document.getElementById('nav-logo');
+    let lastY = 0;
+    window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y < 60) { nav.classList.remove('scrolled','hidden-nav'); if(logo) logo.style.filter='none'; }
+        else {
+            nav.classList.add('scrolled');
+            if(logo) logo.style.filter='none';
+            if (y > lastY && y > 200) nav.classList.add('hidden-nav');
+            else if (y < lastY) nav.classList.remove('hidden-nav');
+        }
+        lastY = y;
+        // sticky CTA
+        document.getElementById('stickyCta').classList.toggle('visible', y > 600);
+    });
+
+    // Animations
+    gsap.utils.toArray('.gsap-reveal').forEach(el => {
+        gsap.to(el, { opacity:1, y:0, duration:1.1, delay:parseFloat(el.dataset.delay||0), ease:'power4.out', scrollTrigger:{ trigger:el, start:'top 88%' } });
+    });
+    gsap.utils.toArray('.gsap-fade').forEach(el => {
+        gsap.fromTo(el, {opacity:0,y:40},{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}});
+    });
+</script>
+</body>
+</html>

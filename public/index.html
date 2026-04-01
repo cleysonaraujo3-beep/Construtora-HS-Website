@@ -470,7 +470,7 @@
         <section class="hero-section">
             <!-- Video Background (Native) -->
             <div class="hero-video-bg gs-parallax">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                <video autoplay muted loop playsinline preload="auto" poster="assets/img/reais/residencial-1.jpeg" class="w-full h-full object-cover">
                     <source src="assets/video/0326.mp4" type="video/mp4">
                     Seu navegador não suporta vídeos.
                 </video>
@@ -1209,12 +1209,11 @@
 
         // Initial setup for cinematic reveal
         gsap.set(".gsap-reveal", { visibility: "visible", opacity: 0, y: 50 });
-        gsap.set(".hero-video-bg", { scale: 1.2, filter: "brightness(0)" });
+        gsap.set(".hero-video-bg", { scale: 1.2 }); // Removido o filtro de brilho 0
 
         // Build Timeline
         tlHero.to(".hero-video-bg", { 
             scale: 1.05, 
-            filter: "brightness(1)", 
             duration: 3, 
             ease: "power2.out" 
         });
@@ -1225,7 +1224,7 @@
             y: 0, 
             opacity: 1, 
             stagger: 0.15 
-        }, 0.8);
+        }, 0.5); // Adiantado de 0.8 para 0.5 para maior rapidez
 
         tlHero.to(".trust-item", { 
             y: 0, 
@@ -1234,31 +1233,18 @@
             duration: 1 
         }, 1.5);
 
-        // Wait for video to start playing to avoid black screen flash
-        if (heroVideo) {
-            heroVideo.addEventListener('playing', function() {
-                setTimeout(() => {
-                    if (tlHero.paused()) {
-                        tlHero.play();
-                        startCounters();
-                    }
-                }, 300); // Small buffer
-            });
-
-            // Start anyway if video is already playing or cached
-            if (!heroVideo.paused) {
-                tlHero.play();
-                startCounters();
+        // Auto-play trigger for text and video
+        window.addEventListener('load', () => {
+            tlHero.play();
+            startCounters();
+            
+            // Force play video just in case browser blocked it
+            if (heroVideo) {
+                heroVideo.play().catch(error => {
+                    console.log("Autoplay blocked by browser. User interaction needed or muted flag missing.");
+                });
             }
-        }
-
-        // Safe fallback in case video fails to fire 'play'
-        setTimeout(() => {
-            if (tlHero.paused()) {
-                tlHero.play();
-                startCounters();
-            }
-        }, 3000);
+        });
 
         function startCounters() {
             const counters = document.querySelectorAll('.counter');

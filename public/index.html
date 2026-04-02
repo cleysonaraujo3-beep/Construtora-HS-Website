@@ -429,7 +429,7 @@
             <div class="mobile-item-accordion">
                 <div class="mobile-menu-link" id="mobileServicosToggle">
                     Serviços Oferecidos
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="chevron transition-transform">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" class="chevron transition-transform">
                         <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
@@ -468,12 +468,12 @@
     <!-- MAIN HERO SECTION -->
     <main>
         <section class="hero-section">
-            <!-- Video Background (Native) -->
+            <!-- Video Background -->
             <div class="hero-video-bg gs-parallax">
-                <video autoplay muted loop playsinline preload="auto" poster="assets/img/reais/residencial-1.jpeg" class="w-full h-full object-cover">
-                    <source src="assets/video/0326.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeos.
-                </video>
+                <iframe src="https://player.vimeo.com/video/1178578515?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" 
+                        style="width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;" 
+                        frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                </iframe>
             </div>
             
             <!-- Dark Overlay -->
@@ -1116,6 +1116,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
+    <!-- Vimeo Player API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
     <script>
         // 1. Initialize Custom Smooth Scroll (Lenis)
         const lenis = new Lenis({
@@ -1197,10 +1200,11 @@
             });
         });
 
-        // 3. GSAP Hero Animations & Video Sync
+        // 3. GSAP Hero Animations & Vimeo Sync
         gsap.registerPlugin(ScrollTrigger);
 
-        const heroVideo = document.querySelector('.hero-video-bg video');
+        const iframe = document.querySelector('iframe');
+        const player = new Vimeo.Player(iframe);
 
         const tlHero = gsap.timeline({ 
             paused: true, // Start paused, wait for video
@@ -1209,11 +1213,12 @@
 
         // Initial setup for cinematic reveal
         gsap.set(".gsap-reveal", { visibility: "visible", opacity: 0, y: 50 });
-        gsap.set(".hero-video-bg", { scale: 1.2 }); // Removido o filtro de brilho 0
+        gsap.set(".hero-video-bg", { scale: 1.2, filter: "brightness(0)" });
 
         // Build Timeline
         tlHero.to(".hero-video-bg", { 
             scale: 1.05, 
+            filter: "brightness(1)", 
             duration: 3, 
             ease: "power2.out" 
         });
@@ -1224,27 +1229,33 @@
             y: 0, 
             opacity: 1, 
             stagger: 0.15 
-        }, 0.5); // Adiantado de 0.8 para 0.5 para maior rapidez
+        }, 0.8);
 
-        tlHero.to(".trust-item", { 
+        tlHero.fromTo(".trust-item", { 
+            y: 30, 
+            opacity: 0 
+        }, { 
             y: 0, 
             opacity: 1, 
             stagger: 0.1, 
             duration: 1 
         }, 1.5);
 
-        // Auto-play trigger for text and video
-        window.addEventListener('load', () => {
-            tlHero.play();
-            startCounters();
-            
-            // Force play video just in case browser blocked it
-            if (heroVideo) {
-                heroVideo.play().catch(error => {
-                    console.log("Autoplay blocked by browser. User interaction needed or muted flag missing.");
-                });
-            }
+        // Wait for video to start playing to avoid black screen flash
+        player.on('play', function() {
+            setTimeout(() => {
+                tlHero.play();
+                startCounters();
+            }, 300); // Small buffer
         });
+
+        // Safe fallback in case video fails to fire 'play'
+        setTimeout(() => {
+            if (tlHero.paused()) {
+                tlHero.play();
+                startCounters();
+            }
+        }, 3000);
 
         function startCounters() {
             const counters = document.querySelectorAll('.counter');

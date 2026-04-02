@@ -7,11 +7,19 @@
     
     <!-- Meta tags for SEO & Performance -->
     <meta name="description" content="Construtora HS. Excelência em construções de alto padrão, projetos comerciais e industriais. Construindo o futuro com qualidade.">
+    <!-- Preconnect & DNS-Prefetch for Speed -->
     <link rel="preconnect" href="https://player.vimeo.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://f.vimeocdn.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Montserrat Preload for LCP -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -64,6 +72,13 @@
             font-family: "Montserrat", sans-serif !important;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Hardware Acceleration for GSAP elements */
+        .gsap-fade-up, .gs-parallax, .gsap-reveal {
+            will-change: transform, opacity;
+            backface-visibility: hidden;
         }
 
         /* Enforce Montserrat globally */
@@ -470,9 +485,9 @@
         <section class="hero-section">
             <!-- Video Background -->
             <div class="hero-video-bg gs-parallax">
-                <iframe src="https://player.vimeo.com/video/1178578515?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" 
+                <iframe src="https://player.vimeo.com/video/1179409168?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&dnt=1&quality=720p" 
                         style="width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.77vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;" 
-                        frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                        frameborder="0" allow="autoplay; fullscreen" allowfullscreen loading="eager">
                 </iframe>
             </div>
             
@@ -548,7 +563,7 @@
                     <div class="w-full lg:w-1/2 order-1 gsap-fade-up">
                         <div class="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[3/4] rounded-sm overflow-hidden shadow-2xl">
                             <!-- Imagem de obra real -->
-                            <img src="assets/img/reais/home-sobre-drone.jpg" alt="Acompanhamento Aéreo de Obras Construtora HS" class="w-full h-full object-cover relative z-10 transition-transform duration-1000 hover:scale-105"/>
+                            <img src="assets/img/reais/home-sobre-drone.webp" alt="Acompanhamento Aéreo de Obras Construtora HS" class="w-full h-full object-cover relative z-10 transition-transform duration-1000 hover:scale-105" loading="lazy" decoding="async"/>
                             <!-- Detalhe decorativo azul -->
                             <div class="absolute bottom-0 left-0 w-24 h-24 bg-dsSecBlue z-20 flex items-center justify-center">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"></path></svg>
@@ -768,7 +783,7 @@
                     
                     <!-- Project 1 -->
                     <a href="obras.html" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up" data-delay="0.1">
-                        <img src="assets/img/reais/home-proj-1.jpg" alt="Usina Nardini" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-1.webp" alt="Usina Nardini" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-dsDark/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-dsAccent text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Comercial</span>
@@ -779,7 +794,7 @@
 
                     <!-- Project 2 -->
                     <a href="obras.html" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up" data-delay="0.2">
-                        <img src="assets/img/reais/home-proj-2.jpg" alt="Casa de Materiais para Construção" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-2.webp" alt="Casa de Materiais para Construção" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-dsSecBlue text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Comercial</span>
@@ -790,7 +805,7 @@
 
                     <!-- Project 3 -->
                     <a href="obras-personalizadas.html" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up" data-delay="0.3">
-                        <img src="assets/img/reais/home-proj-3.avif" alt="Celeiro Americano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-3.avif" alt="Celeiro Americano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-dsAccent text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Obra Personalizada</span>
@@ -801,7 +816,7 @@
 
                     <!-- Project 4 -->
                     <a href="obras-personalizadas.html" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up" data-delay="0.4">
-                        <img src="assets/img/reais/home-proj-4.jpg" alt="Celeiro Americano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-4.webp" alt="Celeiro Americano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-dsSecBlue text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Obra Personalizada</span>
@@ -812,7 +827,7 @@
 
                     <!-- Project 5 -->
                     <a href="galpoes-industriais.html" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up" data-delay="0.5">
-                        <img src="assets/img/reais/home-proj-5.jpg" alt="Barracão de Pintura" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-5.webp" alt="Barracão de Pintura" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-gray-500 text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Obra de Galpões</span>
@@ -823,7 +838,7 @@
 
                     <!-- Project 6 -->
                     <a href="coberturas.html" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up" data-delay="0.6">
-                        <img src="assets/img/reais/home-proj-6.jpg" alt="Cobertura de Barracão" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-6.webp" alt="Cobertura de Barracão" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-dsAccent text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Cobertura</span>
@@ -1200,115 +1215,114 @@
             });
         });
 
-        // 3. GSAP Hero Animations & Vimeo Sync
+        // 3. GSAP Global Config & Hero Animations
         gsap.registerPlugin(ScrollTrigger);
+        gsap.config({ force3D: true });
 
         const iframe = document.querySelector('iframe');
         const player = new Vimeo.Player(iframe);
 
         const tlHero = gsap.timeline({ 
-            paused: true, // Start paused, wait for video
-            defaults: { ease: "power4.out", duration: 1.2 } 
+            paused: true, 
+            defaults: { ease: "power4.out", duration: 1.2, lazy: true } 
         });
 
-        // Initial setup for cinematic reveal
-        gsap.set(".gsap-reveal", { visibility: "visible", opacity: 0, y: 50 });
-        gsap.set(".hero-video-bg", { scale: 1.2, filter: "brightness(0)" });
+        // Initial setup
+        gsap.set(".gsap-reveal", { visibility: "visible", opacity: 0, y: 30 });
+        gsap.set(".hero-video-bg", { scale: 1.1, filter: "brightness(0)" });
 
         // Build Timeline
         tlHero.to(".hero-video-bg", { 
             scale: 1.05, 
             filter: "brightness(1)", 
-            duration: 3, 
+            duration: 2.5, 
             ease: "power2.out" 
         });
 
-        tlHero.to(".gsap-line", { scaleX: 1, duration: 1 }, 0.5);
+        tlHero.to(".gsap-line", { scaleX: 1, duration: 0.8 }, 0.3);
         
         tlHero.to(".hero-content-wrapper .gsap-reveal", { 
             y: 0, 
             opacity: 1, 
-            stagger: 0.15 
-        }, 0.8);
+            stagger: 0.1 
+        }, 0.5);
 
         tlHero.fromTo(".trust-item", { 
-            y: 30, 
+            y: 20, 
             opacity: 0 
         }, { 
             y: 0, 
             opacity: 1, 
-            stagger: 0.1, 
-            duration: 1 
-        }, 1.5);
+            stagger: 0.05, 
+            duration: 0.8 
+        }, 1.0);
 
-        // Wait for video to start playing to avoid black screen flash
-        player.on('play', function() {
-            setTimeout(() => {
+        // Play when ready
+        player.on('play', () => {
+            requestAnimationFrame(() => {
                 tlHero.play();
                 startCounters();
-            }, 300); // Small buffer
+            });
         });
 
-        // Safe fallback in case video fails to fire 'play'
+        // Fallback
         setTimeout(() => {
             if (tlHero.paused()) {
                 tlHero.play();
                 startCounters();
             }
-        }, 3000);
+        }, 2000);
 
         function startCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
+            document.querySelectorAll('.counter').forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 gsap.to(counter, {
                     innerHTML: target,
-                    duration: 3,
+                    duration: 2,
                     snap: { innerHTML: 1 },
-                    ease: "power2.inOut",
+                    ease: "power1.inOut",
                     scrollTrigger: {
                         trigger: "#trust-metrics",
-                        start: "top 90%",
-                    },
-                    onUpdate: function() {
-                        counter.innerHTML = Math.round(this.targets()[0].innerHTML);
+                        start: "top 95%",
                     }
                 });
             });
         }
 
-        // 4. Scroll Parallax for Hero Background
+        // 4. Optimized Scroll Parallax
         gsap.to(".gs-parallax", {
-            yPercent: 15,
+            yPercent: 10,
             ease: "none",
             scrollTrigger: {
                 trigger: ".hero-section",
                 start: "top top",
                 end: "bottom top",
-                scrub: true
+                scrub: 0.5 // Smoother scrub
             }
         });
 
-        // 5. General Scroll Animations (Sobre Nós, Projetos, etc)
-        gsap.utils.toArray('.gsap-fade-up').forEach((elem) => {
+        // 5. Efficient General Animations
+        const fadeUpElems = gsap.utils.toArray('.gsap-fade-up');
+        fadeUpElems.forEach((elem) => {
             const delay = elem.getAttribute('data-delay') || 0;
             gsap.fromTo(elem, 
-                { y: 50, opacity: 0 }, 
+                { y: 30, opacity: 0 }, 
                 {
                     y: 0, 
                     opacity: 1, 
-                    duration: 1, 
+                    duration: 0.8, 
                     delay: parseFloat(delay),
-                    ease: "power3.out",
+                    ease: "power2.out",
                     scrollTrigger: {
                         trigger: elem,
-                        start: "top 85%", // Dispara quando o elemento atinge 85% da tela
+                        start: "top 90%",
+                        toggleActions: "play none none none"
                     }
                 }
             );
         });
 
-        // 6. Vertical Progress Line Animation (Próximos Passos)
+        // 6. Vertical Progress Line
         const progressLineVertical = document.querySelector('.gsap-line-progress-vertical');
         if (progressLineVertical) {
             gsap.to(progressLineVertical, {
@@ -1316,33 +1330,26 @@
                 ease: "none",
                 scrollTrigger: {
                     trigger: "#passos",
-                    start: "top 45%",
-                    end: "bottom 75%",
-                    scrub: 1
+                    start: "top 50%",
+                    end: "bottom 80%",
+                    scrub: 0.5
                 }
             });
         }
 
-        // 7. Synchronized Step Circle Activation
-        gsap.utils.toArray('.gsap-step-circle').forEach((circle, index) => {
+        // 7. Step Activation
+        gsap.utils.toArray('.gsap-step-circle').forEach((circle) => {
             const num = circle.querySelector('span');
-            gsap.to(circle, {
-                borderColor: "#f18e39", // Cor Laranja
-                backgroundColor: "#ffffff", // Manter sólido para esconder a linha atrás
-                duration: 0.1,
-                scrollTrigger: {
-                    trigger: circle,
-                    start: "top 60%", // Ativado quando o círculo chega perto do meio/progress line
-                    toggleActions: "play none none reverse",
-                }
-            });
-            gsap.to(num, {
-                color: "#f18e39",
-                duration: 0.1,
-                scrollTrigger: {
-                    trigger: circle,
-                    start: "top 60%",
-                    toggleActions: "play none none reverse",
+            ScrollTrigger.create({
+                trigger: circle,
+                start: "top 65%",
+                onEnter: () => {
+                    gsap.to(circle, { borderColor: "#f18e39", backgroundColor: "#ffffff", duration: 0.2 });
+                    gsap.to(num, { color: "#f18e39", duration: 0.2 });
+                },
+                onLeaveBack: () => {
+                    gsap.to(circle, { borderColor: "", backgroundColor: "", duration: 0.2 });
+                    gsap.to(num, { color: "", duration: 0.2 });
                 }
             });
         });

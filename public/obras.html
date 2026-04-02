@@ -7,11 +7,18 @@
     
     <!-- Meta tags for SEO & Performance -->
     <meta name="description" content="Construtora HS. Excelência em construções de alto padrão, projetos comerciais e industriais. Construindo o futuro com qualidade.">
+    <!-- Preconnect & DNS-Prefetch for Speed -->
     <link rel="preconnect" href="https://player.vimeo.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Montserrat Preload for LCP -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -64,6 +71,13 @@
             font-family: "Montserrat", sans-serif !important;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Hardware Acceleration for GSAP elements */
+        .gsap-fade-up, .gs-parallax, .gsap-reveal, .project-card {
+            will-change: transform, opacity;
+            backface-visibility: hidden;
         }
 
         /* Enforce Montserrat globally */
@@ -603,9 +617,10 @@
         <section class="relative min-h-[40vh] flex items-center bg-dsDark overflow-hidden z-10 py-20">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
-                <img src="assets/img/reais/usina-1.jpg" 
+                <img src="assets/img/reais/usina-1.webp" 
                      alt="Background Hero Obras" 
-                     class="w-full h-full object-cover opacity-30 gs-parallax-hero">
+                     class="w-full h-full object-cover opacity-30 gs-parallax-hero"
+                     loading="eager" fetchpriority="high" decoding="async">
                 <div class="absolute inset-0 bg-dsDark/80"></div>
             </div>
 
@@ -656,7 +671,7 @@
                     
                     <!-- Project 1 -->
                     <a href="#projeto-1" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up project-card" data-category="comerciais" data-delay="0.1">
-                        <img src="assets/img/reais/home-proj-1.jpg" alt="Usina Nardini" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-1.webp" alt="Usina Nardini" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <!-- Dark Overlay -->
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-dsDark/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <!-- Content -->
@@ -669,7 +684,7 @@
 
                     <!-- Project 2 -->
                     <a href="#projeto-2" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up project-card" data-category="comerciais" data-delay="0.2">
-                        <img src="assets/img/reais/home-proj-2.jpg" alt="Casa de Materiais para Construção" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-2.webp" alt="Casa de Materiais para Construção" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-dsSecBlue text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Comercial</span>
@@ -680,7 +695,7 @@
 
                     <!-- Project 3 -->
                     <a href="#projeto-3" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up project-card" data-category="personalizadas" data-delay="0.3">
-                        <img src="assets/img/reais/home-proj-3.avif" alt="Celeiro Americano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-3.avif" alt="Celeiro Americano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-dsAccent text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Obra Personalizada</span>
@@ -691,7 +706,7 @@
 
                     <!-- Project 4 -->
                     <a href="#projeto-4" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up project-card" data-category="personalizadas" data-delay="0.4">
-                        <img src="assets/img/reais/home-proj-4.jpg" alt="Celeiro Americano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-4.webp" alt="Celeiro Americano" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-dsSecBlue text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Obra Personalizada</span>
@@ -702,7 +717,7 @@
 
                     <!-- Project 5 -->
                     <a href="#projeto-5" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up project-card" data-category="galpoes" data-delay="0.5">
-                        <img src="assets/img/reais/home-proj-5.jpg" alt="Barracão de Pintura" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-5.webp" alt="Barracão de Pintura" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-gray-500 text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Galpões</span>
@@ -713,7 +728,7 @@
 
                     <!-- Project 6 -->
                     <a href="#projeto-6" class="group relative md:col-span-4 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg block gsap-fade-up project-card" data-category="coberturas" data-delay="0.6">
-                        <img src="assets/img/reais/home-proj-6.jpg" alt="Cobertura de Barracão" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <img src="assets/img/reais/home-proj-6.webp" alt="Cobertura de Barracão" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"/>
                         <div class="absolute inset-0 bg-gradient-to-t from-dsDark/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <span class="inline-block px-3 py-1 bg-dsAccent text-white text-[10px] md:text-xs font-bold uppercase tracking-wider rounded mb-3">Cobertura</span>
@@ -1001,20 +1016,38 @@
 
 
 
-        // 5. General Scroll Animations (Sobre Nós, Projetos, etc)
-        gsap.utils.toArray('.gsap-fade-up').forEach((elem) => {
+        // 3. GSAP Global Config
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.config({ force3D: true });
+
+        // 4. Optimized Hero Parallax
+        gsap.to(".gs-parallax-hero", {
+            yPercent: 15,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "section",
+                start: "top top",
+                end: "bottom top",
+                scrub: 0.5
+            }
+        });
+
+        // 5. Efficient General Animations
+        const fadeUpElems = gsap.utils.toArray('.gsap-fade-up');
+        fadeUpElems.forEach((elem) => {
             const delay = elem.getAttribute('data-delay') || 0;
             gsap.fromTo(elem, 
-                { y: 50, opacity: 0 }, 
+                { y: 30, opacity: 0 }, 
                 {
                     y: 0, 
                     opacity: 1, 
-                    duration: 1, 
+                    duration: 0.8, 
                     delay: parseFloat(delay),
-                    ease: "power3.out",
+                    ease: "power2.out",
                     scrollTrigger: {
                         trigger: elem,
-                        start: "top 85%", // Dispara quando o elemento atinge 85% da tela
+                        start: "top 90%",
+                        toggleActions: "play none none none"
                     }
                 }
             );
@@ -1042,7 +1075,6 @@
             });
         }
 
-        // Close menu when clicking links
         document.querySelectorAll('.mobile-menu-link:not(#mobileServicosToggle), .mobile-sub-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileToggle.classList.remove('active');
@@ -1051,27 +1083,24 @@
             });
         });
 
-        // 6. Project Filtering Logic (Dropdown Style)
+        // 6. Optimized Project Filtering
         const filterDropdown = document.querySelector('.filter-dropdown');
         const filterTrigger = document.getElementById('filter-trigger');
         const currentFilterLabel = document.getElementById('current-filter');
         const filterItems = document.querySelectorAll('.filter-item');
         const projectCards = document.querySelectorAll('.project-card');
 
-        // Toggle UI
         filterTrigger.addEventListener('click', (e) => {
             e.stopPropagation();
             filterDropdown.classList.toggle('active');
         });
 
-        // Close on outside click
         document.addEventListener('click', () => {
             filterDropdown.classList.remove('active');
         });
 
         filterItems.forEach(item => {
             item.addEventListener('click', () => {
-                // UI Updates
                 filterItems.forEach(i => i.classList.remove('active'));
                 item.classList.add('active');
                 currentFilterLabel.innerText = item.innerText;
@@ -1079,29 +1108,28 @@
 
                 const filter = item.getAttribute('data-filter');
 
-                // GSAP Transition
                 gsap.to(projectCards, {
-                    scale: 0.9,
+                    scale: 0.95,
                     opacity: 0,
-                    duration: 0.3,
+                    duration: 0.25,
                     ease: "power2.in",
-                    stagger: 0.05,
+                    stagger: 0.02,
+                    lazy: true,
                     onComplete: () => {
                         projectCards.forEach(card => {
                             const category = card.getAttribute('data-category');
-                            if (filter === 'all' || category === filter) {
-                                card.style.display = 'block';
-                            } else {
-                                card.style.display = 'none';
-                            }
+                            card.style.display = (filter === 'all' || category === filter) ? 'block' : 'none';
                         });
+
+                        ScrollTrigger.refresh();
 
                         gsap.to(projectCards, {
                             scale: 1,
                             opacity: 1,
-                            duration: 0.4,
+                            duration: 0.35,
                             ease: "power2.out",
-                            stagger: 0.05
+                            stagger: 0.02,
+                            lazy: true
                         });
                     }
                 });

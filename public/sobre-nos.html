@@ -7,11 +7,18 @@
     
     <!-- Meta tags for SEO & Performance -->
     <meta name="description" content="Construtora HS. Excelência em construções de alto padrão, projetos comerciais e industriais. Construindo o futuro com qualidade.">
+    <!-- Preconnect & DNS-Prefetch for Speed -->
     <link rel="preconnect" href="https://player.vimeo.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Montserrat Preload for LCP -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -64,6 +71,13 @@
             font-family: "Montserrat", sans-serif !important;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Hardware Acceleration for GSAP elements */
+        .gsap-fade-up, .gs-parallax, .gsap-reveal {
+            will-change: transform, opacity;
+            backface-visibility: hidden;
         }
 
         /* Enforce Montserrat globally */
@@ -468,9 +482,10 @@
         <section class="relative min-h-[40vh] flex items-center bg-dsDark overflow-hidden z-10 py-20">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
-                <img src="assets/img/reais/chale-1.jpg" 
+                <img src="assets/img/reais/chale-1.webp" 
                      alt="Background Hero" 
-                     class="w-full h-full object-cover opacity-30 gs-parallax-hero">
+                     class="w-full h-full object-cover opacity-30 gs-parallax-hero"
+                     loading="eager" fetchpriority="high" decoding="async">
                 <div class="absolute inset-0 bg-dsDark/80"></div>
             </div>
 
@@ -593,7 +608,7 @@
         <!-- Bloco de Impacto Full Width -->
         <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden z-20">
             <div class="absolute inset-0 bg-dsDark/70 z-10"></div>
-            <img src="assets/img/reais/usina-1.jpg" class="absolute inset-0 w-full h-[130%] object-cover gs-parallax-img -top-[15%] grayscale-[30%]" alt="Impacto Estrutural">
+            <img src="assets/img/reais/usina-1.webp" class="absolute inset-0 w-full h-[130%] object-cover gs-parallax-img -top-[15%] grayscale-[30%]" alt="Impacto Estrutural" loading="lazy" decoding="async">
             
             <div class="relative z-20 text-center max-w-[1200px] px-10">
                 <h2 class="text-white font-sans font-extrabold text-[clamp( ৩২px,4vw,64px )] leading-[1.1] uppercase tracking-[-1px] gsap-fade-up">
@@ -848,81 +863,79 @@
             });
         });
 
-        // 3. GSAP Hero Animations (Sobre Nós)
+        // 3. GSAP Global Config
         gsap.registerPlugin(ScrollTrigger);
+        gsap.config({ force3D: true });
 
-        const tlHero = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2 } });
+        const tlHero = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2, lazy: true } });
 
-        // Initial setup for cinematic reveal
-        gsap.set(".gsap-reveal", { visibility: "visible", opacity: 0, y: 50 });
+        // Initial setup
+        gsap.set(".gsap-reveal", { visibility: "visible", opacity: 0, y: 30 });
 
-        // Play automatically since there is no video to wait for
         window.addEventListener('load', () => {
-            tlHero.to(".gsap-line", { scaleX: 1, duration: 1 })
-                  .to(".gsap-reveal", { y: 0, opacity: 1, stagger: 0.15 }, "-=0.5");
-            startCounters();
+            requestAnimationFrame(() => {
+                tlHero.to(".gsap-line", { scaleX: 1, duration: 0.8 })
+                      .to(".gsap-reveal", { y: 0, opacity: 1, stagger: 0.1 }, "-=0.4");
+                startCounters();
+            });
         });
 
         function startCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
+            document.querySelectorAll('.counter').forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 gsap.to(counter, {
                     innerHTML: target,
-                    duration: 2.5,
+                    duration: 2,
                     snap: { innerHTML: 1 },
-                    ease: "power2.inOut",
+                    ease: "power1.inOut",
                     scrollTrigger: {
                         trigger: counter,
                         start: "top 95%",
-                    },
-                    onUpdate: function() {
-                        counter.innerHTML = Math.round(this.targets()[0].innerHTML);
                     }
                 });
             });
         }
 
-        // 4. Scroll Parallax for Hero Background
+        // 4. Optimized Hero Parallax
         gsap.to(".gs-parallax-hero", {
-            yPercent: 20,
+            yPercent: 15,
             ease: "none",
             scrollTrigger: {
                 trigger: ".gs-parallax-hero",
                 start: "top top",
                 end: "bottom top",
-                scrub: true
+                scrub: 0.5
             }
         });
 
-        // 4.1 Scroll Parallax for Impact Image
+        // 4.1 Optimized Impact Parallax
         gsap.to(".gs-parallax-img", {
-            yPercent: 30, // move down as you scroll up
+            yPercent: 20,
             ease: "none",
             scrollTrigger: {
                 trigger: ".gs-parallax-img",
                 start: "top bottom", 
                 end: "bottom top",
-                scrub: true
+                scrub: 0.5
             }
         });
 
-
-
-        // 5. General Scroll Animations (Sobre Nós, Projetos, etc)
-        gsap.utils.toArray('.gsap-fade-up').forEach((elem) => {
+        // 5. Efficient General Animations
+        const fadeUpElems = gsap.utils.toArray('.gsap-fade-up');
+        fadeUpElems.forEach((elem) => {
             const delay = elem.getAttribute('data-delay') || 0;
             gsap.fromTo(elem, 
-                { y: 50, opacity: 0 }, 
+                { y: 30, opacity: 0 }, 
                 {
                     y: 0, 
                     opacity: 1, 
-                    duration: 1, 
+                    duration: 0.8, 
                     delay: parseFloat(delay),
-                    ease: "power3.out",
+                    ease: "power2.out",
                     scrollTrigger: {
                         trigger: elem,
-                        start: "top 85%", // Dispara quando o elemento atinge 85% da tela
+                        start: "top 90%",
+                        toggleActions: "play none none none"
                     }
                 }
             );

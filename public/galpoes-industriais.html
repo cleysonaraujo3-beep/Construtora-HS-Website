@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galpões Industriais para Empresas | Construtora HS</title>
     <meta name="description" content="Construa seu galpão industrial com estrutura certificada, prazo garantido em contrato e orçamento fechado. A Construtora HS entrega operações industriais completas. Solicite sua análise técnica gratuita.">
+    <!-- Preconnect & DNS-Prefetch for Speed -->
+    <link rel="preconnect" href="https://player.vimeo.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Montserrat Preload for LCP -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </noscript>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,12 +25,20 @@
     </script>
     <style>
         :root { --ds-dark:#0F1228; --ds-accent:#f18e39; --ds-blue:#3c43aa; --ds-border:rgba(15,18,40,0.1); }
-        h1,h2,h3,h4,p,span,a,button { 
+        body { 
             font-family:'Montserrat',sans-serif!important; 
-            outline: none !important;
+            background:#fff; 
+            color:var(--ds-dark); 
+            overflow-x:hidden; 
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
-        *:focus { outline: none !important; }
-        a, button { -webkit-tap-highlight-color: transparent; }
+
+        /* Hardware Acceleration for GSAP elements */
+        .gsap-reveal, .gsap-fade, .metodo-step, .sector-card, .pain-card {
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+        }
 
         /* NAV SIMPLIFICADO LP */
         .lp-nav { position:fixed; top:0; width:100%; z-index:9999; background:transparent; padding:1.6rem 0; transition:all .4s ease; }
@@ -112,7 +129,7 @@
 <!-- ===================== HERO ===================== -->
 <section class="relative min-h-screen flex items-center bg-dsDark overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img src="assets/img/reais/galpao-4.jpg" alt="Galpão Industrial de Alto Padrão" class="w-full h-full object-cover opacity-50">
+        <img src="assets/img/reais/galpao-4.webp" alt="Galpão Industrial de Alto Padrão" class="w-full h-full object-cover opacity-50" loading="eager" fetchpriority="high" decoding="async">
         <div class="absolute inset-0 hero-gradient"></div>
     </div>
     <div class="absolute inset-0 industrial-stripe z-[1]"></div>
@@ -207,7 +224,7 @@
                 </div>
             </div>
             <div class="relative gsap-fade pb-12">
-                <img src="assets/img/reais/galpao-3.jpg" alt="Galpão industrial em construção" class="rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover max-h-[460px]">
+                <img src="assets/img/reais/galpao-3.webp" alt="Galpão industrial em construção" class="rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 w-full object-cover max-h-[460px]" loading="lazy" decoding="async">
                 <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-dsBlue px-10 py-5 rounded-xl shadow-2xl min-w-[320px] text-center">
                     <span class="text-white font-black text-4xl block">80%</span>
                     <span class="text-white/70 text-[10px] font-bold uppercase tracking-widest">das obras industriais têm problemas sérios de gestão</span>
@@ -367,17 +384,17 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="group relative aspect-video overflow-hidden rounded-2xl shadow-xl gsap-reveal">
-                <img src="assets/img/reais/montagem.jpg" alt="Montagem de Estrutura Metálica" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <img src="assets/img/reais/montagem.webp" alt="Montagem de Estrutura Metálica" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-t from-dsDark to-transparent opacity-60"></div>
                 <div class="absolute bottom-6 left-6 text-white"><span class="font-bold text-xs uppercase tracking-widest opacity-70 mb-1 block">Fase 1</span><p class="text-lg font-black uppercase">Montagem de Estrutura</p></div>
             </div>
             <div class="group relative aspect-video overflow-hidden rounded-2xl shadow-xl gsap-reveal" data-delay="0.15">
-                <img src="assets/img/reais/tratores.jpg" alt="Preparação de Base do Galpão" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <img src="assets/img/reais/tratores.webp" alt="Preparação de Base do Galpão" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-t from-dsDark to-transparent opacity-60"></div>
                 <div class="absolute bottom-6 left-6 text-white"><span class="font-bold text-xs uppercase tracking-widest opacity-70 mb-1 block">Terraplenagem</span><p class="text-lg font-black uppercase">Nivelamento a Laser</p></div>
             </div>
             <div class="group relative aspect-video overflow-hidden rounded-2xl shadow-xl gsap-reveal" data-delay="0.3">
-                <img src="assets/img/reais/guindaste.jpg" alt="Guindaste e Cobertura" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <img src="assets/img/reais/guindaste.webp" alt="Guindaste e Cobertura" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-t from-dsDark to-transparent opacity-60"></div>
                 <div class="absolute bottom-6 left-6 text-white"><span class="font-bold text-xs uppercase tracking-widest opacity-70 mb-1 block">Içamento</span><p class="text-lg font-black uppercase">Fechamento de Cobertura</p></div>
             </div>
@@ -419,6 +436,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script>
     gsap.registerPlugin(ScrollTrigger);
+    gsap.config({ force3D: true });
 
     // Nav scroll
     const nav = document.getElementById('lpNav');
@@ -436,14 +454,39 @@
         lastY = y;
         // sticky CTA
         document.getElementById('stickyCta').classList.toggle('visible', y > 600);
-    });
+    }, { passive: true });
 
-    // Animations
+    // Efficient General Animations
     gsap.utils.toArray('.gsap-reveal').forEach(el => {
-        gsap.to(el, { opacity:1, y:0, duration:1.1, delay:parseFloat(el.dataset.delay||0), ease:'power4.out', scrollTrigger:{ trigger:el, start:'top 88%' } });
+        const delay = el.getAttribute('data-delay') || 0;
+        gsap.to(el, { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.8, 
+            delay: parseFloat(delay), 
+            ease: 'power2.out', 
+            scrollTrigger: { 
+                trigger: el, 
+                start: 'top 90%',
+                toggleActions: "play none none none"
+            } 
+        });
     });
     gsap.utils.toArray('.gsap-fade').forEach(el => {
-        gsap.fromTo(el, {opacity:0,y:40},{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}});
+        gsap.fromTo(el, 
+            { opacity: 0, y: 30 },
+            { 
+                opacity: 1, 
+                y: 0, 
+                duration: 0.8, 
+                ease: 'power2.out', 
+                scrollTrigger: { 
+                    trigger: el, 
+                    start: 'top 90%',
+                    toggleActions: "play none none none"
+                } 
+            }
+        );
     });
 </script>
 </body>

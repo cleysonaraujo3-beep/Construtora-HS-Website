@@ -7,10 +7,18 @@
     
     <!-- Meta tags for SEO & Performance -->
     <meta name="description" content="Conheça os serviços de engenharia e construção da Construtora HS. Especialistas em obras industriais, comerciais e residenciais de alto padrão.">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <!-- Preconnect & DNS-Prefetch for Speed -->
+    <link rel="preconnect" href="https://player.vimeo.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Montserrat Preload for LCP -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,6 +63,13 @@
             font-family: "Montserrat", sans-serif !important;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Hardware Acceleration for GSAP elements */
+        .gsap-fade-up, .gs-parallax, .gsap-reveal, .service-card {
+            will-change: transform, opacity;
+            backface-visibility: hidden;
         }
 
         h1, h2, h3, h4, h5, h6, p, span, a, button {
@@ -375,7 +390,7 @@
         <!-- Compact Hero Section -->
         <section class="relative min-h-[45vh] flex items-center bg-dsDark overflow-hidden z-10 py-24">
             <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1503387762-592dee58c460?q=80&w=2070" alt="Engenharia HS" class="w-full h-full object-cover opacity-20 gs-parallax-hero">
+                <img src="https://images.unsplash.com/photo-1503387762-592dee58c460?q=80&w=2070&auto=format&fit=crop&fm=webp" alt="Engenharia HS" class="w-full h-full object-cover opacity-20 gs-parallax-hero" loading="eager" fetchpriority="high" decoding="async">
                 <div class="absolute inset-0 bg-dsDark/80"></div>
             </div>
 
@@ -608,6 +623,7 @@
         requestAnimationFrame(raf);
 
         gsap.registerPlugin(ScrollTrigger);
+        gsap.config({ force3D: true });
 
         // 2. Navigation Scroll Effect
         const nav = document.querySelector('.ds-nav');
@@ -626,7 +642,6 @@
             } else {
                 nav.classList.add('nav--scrolled');
                 if(logo) {
-                    logo.style.filter = "none";
                     logo.style.transform = "scale(0.9)";
                 }
                 
@@ -637,14 +652,36 @@
                 }
             }
             lastScrollY = currentScrollY;
+        }, { passive: true });
+
+        // Optimized Hero Parallax
+        gsap.to(".gs-parallax-hero", {
+            yPercent: 15,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "section",
+                start: "top top",
+                end: "bottom top",
+                scrub: 0.5
+            }
         });
 
-        // Simple FadeUp
+        // Efficient General Animations
         document.querySelectorAll('.gsap-fade-up').forEach(el => {
-            gsap.from(el, {
-                y: 60, opacity: 0, duration: 1.2, ease: "power4.out",
-                scrollTrigger: { trigger: el, start: "top 85%" }
-            });
+            gsap.fromTo(el, 
+                { y: 30, opacity: 0 }, 
+                {
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 0.8, 
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
         });
     </script>
 </body>
